@@ -5,6 +5,7 @@ import Register from './components/Register/Register.jsx'
 import Profile from './components/Profile.jsx'
 import Event from './components/Event.jsx'
 import Home from './components/Home/home.jsx'
+
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { browserHistory } from 'react-router'
 
