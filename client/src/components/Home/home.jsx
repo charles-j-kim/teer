@@ -5,7 +5,11 @@ import { withRouter} from 'react-router'
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      firstName: 'Joe',
+      lastName: 'Doe',
+      profilePic: 'https://content-static.upwork.com/uploads/2014/10/02123010/profile-photo_friendly.jpg'
+    }
   }
 
   componentWillMount() {
