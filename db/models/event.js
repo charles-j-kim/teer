@@ -1,6 +1,6 @@
 const db = require('../');
 
-const Event = db.model.extend({
+const Event = db.Model.extend({
   tableName: 'events',
   volunteerEvents: function() {
     this.hasMany('VolunteerEvent', 'event_id');

@@ -1,6 +1,6 @@
 const db = require('../');
 
-const VolunteerEvent = db.model.extend({
+const VolunteerEvent = db.Model.extend({
   tableName: 'volunteer_event',
   user: function() {
     return this.belongsTo('User', 'volunteer_id');
