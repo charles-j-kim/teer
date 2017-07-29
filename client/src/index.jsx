@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './components/Login.jsx';
+import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 import Profile from './components/Profile.jsx';
 import Event from './components/Event/Event.jsx';

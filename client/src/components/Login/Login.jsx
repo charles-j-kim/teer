@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LoginForm from './Loginform.jsx';
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,9 +13,11 @@ class Login extends React.Component {
 
 
     return (
-      <div>
-        <h1>Login</h1>
-        <h3>Hello world from page 1</h3>
+      <div id="login-page">
+        <div className="RegisterBox">
+          <img className="TEERwh" src="./assets/TEERwh.png"/>
+          <LoginForm />
+        </div>
       </div>
     )
   }
