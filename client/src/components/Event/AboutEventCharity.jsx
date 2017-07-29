@@ -14,8 +14,9 @@ class AboutEventCharity extends React.Component {
     return (
       <div>
         <h1> About Event Charity </h1>
-        <h3> Location of charity, CA USA </h3>
-        <p> This description of charity will be pulled from database as well </p>
+        <h2> Name: {this.props.charityName} </h2>
+        <h3> Location: {this.props.charityLocation} </h3>
+        <p> Description: {this.props.charityDescription} </p>
       </div>
     )
   }

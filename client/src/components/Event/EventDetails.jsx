@@ -14,16 +14,17 @@ class EventDetails extends React.Component {
   render () {
     return (
       <div>
-        <h1> Event Title </h1>
-        <h3> Event Date </h3>
-        <p> Event Text Description about what the event is about (should wrap automatically ???)</p>
+        <h1> Event Title: {this.props.eventTitle} </h1>
+        <h3> Event Date: {this.props.eventDate} </h3>
+        <p> Event Description: {this.props.eventDescription}</p>
 
         <h3> What to bring </h3>
         <ul>
-          <li> this will </li>
-          <li> be a </li>
-          <li> react-mapped </li>
-          <li> list </li>
+          {
+            this.props.whatToBring.map(function(item, i){
+              return (<li key={i}> {item} </li>)
+            })
+          }
         </ul>
 
         <h3> Event Location </h3>

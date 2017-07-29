@@ -5,7 +5,25 @@ import UpcomingEvent from './UpcomingEvent.jsx'
 class UpcomingEventList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      "upcomingEvents":[
+        {
+          "src":"./assets/bla",
+          "title":"Code2040 Hackathon",
+          "date":"Wednesday, August2"
+        },
+        {
+          "src":"./assets/bla",
+          "title":"RedCross Food Drive",
+          "date":"Thursday, August4"
+        },
+        {
+          "src":"./assets/bla",
+          "title":"Save the Dolphins Fundraiser",
+          "date":"Friday, August 5"
+        },
+      ]
+    }
   }
 
   componentWillMount() {
@@ -17,24 +35,19 @@ class UpcomingEventList extends React.Component {
       <div>
         <h1> Upcoming Event List</h1>
         <p> Here will map a list of upcomingEvent components </p>
-        <UpcomingEvent
-          upcomingEventImageSrc=""
-          upcomingEventTitle="Code 2040 Hackathon"
-          upcomingEventDate="Wednesday, August 2"
-        >
-        </UpcomingEvent>
-        <UpcomingEvent
-          upcomingEventImageSrc=""
-          upcomingEventTitle="Red Cross Food Drive"
-          upcomingEventDate="Thursday, August 3"
-        >
-        </UpcomingEvent>
-        <UpcomingEvent
-          upcomingEventImageSrc=""
-          upcomingEventTitle="Save the Dolphins Fundraiser"
-          upcomingEventDate="Friday, August 4"
-        >
-        </UpcomingEvent>
+        {
+          this.state.upcomingEvents.map(function(event, i){
+            return(
+              <UpcomingEvent
+                upcomingEventImageSrc={event.src}
+                upcomingEventTitle={event.title}
+                upcomingEventDate={event.date}
+                key={i}
+              >
+              </UpcomingEvent>
+            )
+          })
+        }
       </div>
     )
   }
