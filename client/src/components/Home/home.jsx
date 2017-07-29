@@ -4,6 +4,7 @@ import { withRouter} from 'react-router';
 import Userinfo from './Userinfo.jsx';
 import Eventstream from './Eventstream.jsx';
 import Filter from './Filter.jsx';
+import axios from 'axios';
 
 class Home extends React.Component {
   constructor(props) {
@@ -28,6 +29,16 @@ class Home extends React.Component {
     if (window.localStorage.loggedIn !== "true") {
       this.props.history.push('/login');
     }
+  }
+
+  componentDidMount() {
+    // axios.get('/event')
+    // .then(response => {
+    //   this.setState({events: respose});
+    // })
+    // .catch(error => {
+    //   console.error(error);
+    // });
   }
 
   render () {

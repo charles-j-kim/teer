@@ -31,6 +31,17 @@ class Event extends React.Component {
     }
   }
 
+  componentDidMount() {
+    // axios.get('/event/' + this.props.location.state.eventID)
+    // .then(response => {
+    //   console.log(response);
+    //   this.setState({events: respose});
+    // })
+    // .catch(error => {
+    //   console.error(error);
+    // });
+  }
+
   render () {
     return (
       <div>
