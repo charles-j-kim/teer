@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// var RTM = require("satori-rtm-sdk");
-
-
+import RTM from 'satori-rtm-sdk';
 
 class Satori extends React.Component {
   constructor(props) {
