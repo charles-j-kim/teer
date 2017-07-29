@@ -1,4 +1,5 @@
 import React from 'react';
+import UpcomingEventItem from './UpcomingEventItem.jsx';
 
 class UpcomingEvents extends React.Component {
   constructor(props) {
@@ -10,14 +11,9 @@ class UpcomingEvents extends React.Component {
     return (
       <div>
         <h3>Upcoming Events</h3>
-        <div>
-          <span>Event Title</span>
-          <span>on Thursday, July 27, 2017</span>
-        </div>
-        <div>
-          <span>Event Title</span>
-          <span>on Thursday, July 27, 2017</span>
-        </div>
+        <UpcomingEventItem />
+        <UpcomingEventItem />
+        <UpcomingEventItem />
       </div>
     );
   }

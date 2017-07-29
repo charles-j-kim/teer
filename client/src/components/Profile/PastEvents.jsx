@@ -1,5 +1,5 @@
 import React from 'react';
-import PastEventReview from './PastEventReview.jsx';
+import PastEventItem from './PastEventItem.jsx';
 
 class PastEvents extends React.Component {
   constructor(props) {
@@ -11,29 +11,9 @@ class PastEvents extends React.Component {
     return (
       <div>
         <h3>Past Events</h3>
-        <div>
-          <div>
-            <span>Event Title</span>
-            <span>on Thursday, July 20, 2017</span>
-            <span>Edit Review</span>
-          </div>
-          <div>
-            <span>+10</span>
-            <span>Teer Points</span>
-          </div>
-          <PastEventReview />
-        </div>
-        <div>
-          <div>
-            <span>Event Title</span>
-            <span>on Thursday, July 20, 2017</span>
-            <span>Write Review</span>
-          </div>
-          <div>
-            <span>+10</span>
-            <span>Teer Points</span>
-          </div>
-        </div>
+        <PastEventItem />
+        <PastEventItem />
+        <PastEventItem />
       </div>
     );
   }
