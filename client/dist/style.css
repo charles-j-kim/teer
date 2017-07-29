@@ -1,7 +1,5 @@
-/*.banner-image{
-  background-repeat: "no-repeat",
-  background-size: "cover",
-  background-position: "center"
-}*/
+.banner-image{
+  width: 100vw;
+}
 
 
