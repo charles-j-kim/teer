@@ -14,6 +14,8 @@ app.use('/register', routes.register);
 // Login
 app.use('/login', routes.login);
 
+// GET page views
+app.use('/view', routes.view);
 
 
 module.exports = app;

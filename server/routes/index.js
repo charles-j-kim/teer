@@ -6,3 +6,6 @@ module.exports.register = require('./register');
 
 // login
 module.exports.login = require('./login');
+
+// GET page views
+module.exports.view = require('./view');
