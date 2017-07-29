@@ -1,6 +1,6 @@
 const db = require('../');
 
-const Review = db.model.extend({
+const Review = db.Model.extend({
   tableName: 'reviews',
   user: function() {
     this.belongsTo('User', 'reviewer_id');
