@@ -15,7 +15,9 @@ class Register extends React.Component {
             <h3>Teer page</h3>
             <h2>Teer</h2>
             <img className="banner-image" src="./assets/teer_volunteers_aspect_ratio_16_9.jpg"></img>
+
             <RegisterForm />
+
         </div>
       </div>
     )
