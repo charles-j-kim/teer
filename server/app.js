@@ -1,21 +1,24 @@
 var express = require('express');
 var routes = require('./routes');
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
 
 var app = express();
 
 app.use(express.static(__dirname + '/../client/dist'));
+app.use(bodyParser.json({limit: '50mb'}));
 
 // Hello world API
-app.use('/api', routes.api);
+app.use('/api', jsonParser, routes.api);
 
 // Register new user
-app.use('/register', routes.register);
+app.use('/register', jsonParser, routes.register);
 
 // Login
-app.use('/login', routes.login);
+app.use('/login', jsonParser, routes.login);
 
 // GET page views
-app.use('/view', routes.view);
+app.use('/view', jsonParser, routes.view);
 
 
 module.exports = app;
