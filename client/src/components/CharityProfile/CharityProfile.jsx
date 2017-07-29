@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter} from 'react-router';
 import About from './About.jsx';
 import Reviews from './Reviews.jsx';
+import UpcomingEvents from './UpcomingEvents.jsx';
+import PastEvents from './PastEvents.jsx';
 
 class CharityProfile extends React.Component {
   constructor(props) {
@@ -28,6 +30,8 @@ class CharityProfile extends React.Component {
         <div>
           <About />
           <Reviews />
+          <UpcomingEvents />
+          <PastEvents />
         </div>
       </div>
     );
