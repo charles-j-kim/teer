@@ -45,7 +45,7 @@ class Loginform extends React.Component {
           <br/>
           <input type="password" className="input" placeholder="password" placeholder="Enter your Password" onChange={this.password}/>
           <br/>
-          <button className="register" type="submit" onClick={this.onClick}> Register </button>
+          <button className="register" type="submit" onClick={this.onClick}> Login </button>
         </form>
       </div>
     )
