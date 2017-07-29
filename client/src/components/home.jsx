@@ -17,6 +17,7 @@ class Home extends React.Component {
   render () {
     return (
       <div>
+        <img className="logo-image" src="./assets/teer_logo.png"></img>
         <h1>HomePage</h1>
         <h3>Hello world from Home</h3>
       </div>
