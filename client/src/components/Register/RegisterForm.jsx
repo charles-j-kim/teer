@@ -62,16 +62,16 @@ class RegisterForm extends React.Component {
     return (
       <div className="box">
         <form className="register-form">
-          <input type="text" placeholder="First Name" onChange={this.firstName}/>
-          <input type="text" placeholder="Last Name" onChange={this.lastName}/>
+          <input type="text" className="inputFirstName" placeholder="First Name" onChange={this.firstName}/>
+          <input type="text" className="inputLastName" placeholder="Last Name" onChange={this.lastName}/>
           <br/>
-          <input type="text" placeholder="Enter your Email" onChange={this.email}/>
+          <input type="text" className="input" placeholder="Enter your Email" onChange={this.email}/>
           <br/>
-          <input type="password" placeholder="password" placeholder="Enter your Password" onChange={this.password}/>
+          <input type="password" className="input" placeholder="password" placeholder="Enter your Password" onChange={this.password}/>
           <br/>
-          <input type="text" placeholder="Tell us about yourself!" onChange={this.description}/>
+          <textarea type="text" className="inputBio" placeholder="Tell us about yourself!" onChange={this.description}/>
           <br/>
-          <button className="" type="submit" onClick={this.onClick}> Register </button>
+          <button className="register" type="submit" onClick={this.onClick}> Register </button>
         </form>
       </div>
     )
