@@ -1,9 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { withRouter} from 'react-router';
 import ProfilePic from './ProfilePic.jsx';
 import ProfileStats from './ProfileStats.jsx';
 import ProfileBanner from './ProfileBanner.jsx';
+import UpcomingEvents from './UpcomingEvents.jsx';
+import PastEvents from './PastEvents.jsx';
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -26,6 +28,8 @@ class Profile extends React.Component {
         </div>
         <div>
           <ProfileBanner />
+          <UpcomingEvents />
+          <PastEvents />
         </div>
       </div>
     );
