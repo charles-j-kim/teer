@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './components/Login.jsx'
-import Register from './components/Register/Register.jsx'
-import Profile from './components/Profile.jsx'
-import Event from './components/Event/Event.jsx'
-import Home from './components/Home/home.jsx'
-import Satori from './components/Satori/Satori.jsx'
+import Login from './components/Login.jsx';
+import Register from './components/Register/Register.jsx';
+import Profile from './components/Profile.jsx';
+import Event from './components/Event/Event.jsx';
+import Home from './components/Home/home.jsx';
+import Satori from './components/Satori/Satori.jsx';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
   render () {
@@ -30,7 +30,7 @@ class App extends React.Component {
             </Switch>
         </Router>
       </div>
-    )
+    );
   }
 }
 
