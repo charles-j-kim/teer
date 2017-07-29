@@ -1,17 +1,14 @@
 var models = require('../../db/models');
+const knex = require('knex')(require('../../knexfile'));
 
 module.exports.login = function (req, res, next) {
-  // res.status(200).send('WE GONN\' LOGIN YO!');
-  // forge Users table
-  console.log(req.body)
-  models.User.forge()
-  .where( {email: req.query.email} )
-  .fetchAll()
-  .then(function(person) {
-    console.log(person);
-  })
-  // look up email
-  // check if username matches
-    // if yes, send status 200
-    // else send Forbidden status
+  knex
+    .raw(`select * from users where email = '${req.body.email}'`)
+    .then((user) => {
+      if ( user.password === req.body.password ) {
+        res.status(200).send();
+      } else{
+        res.status(403).send();
+      }
+    })
 }
