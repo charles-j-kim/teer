@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import EventReview from './EventReview.jsx'
 
-class EventReviewsList extends React.Component {
+class EventReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -15,12 +15,11 @@ class EventReviewsList extends React.Component {
   render () {
     return (
       <div>
-        <h1> Event Reviews </h1>
-        <p> Here will map a list of eventReview components </p>
+        <h1> EventReview List </h1>
         <EventReview
-          upcomingEventImageSrc=""
-          upcomingEventTitle="Code 2040 Hackathon"
-          upcomingEventDate="Wednesday, August 2"
+          userProfilePictureSrc=""
+          name="Ryan"
+          userReview="this event was awesome!"
         >
         </EventReview>
       </div>
@@ -28,4 +27,4 @@ class EventReviewsList extends React.Component {
   }
 }
 
-export default EventReviewsList;
+export default EventReviewList;

@@ -14,9 +14,9 @@ class EventReview extends React.Component {
   render () {
     return (
       <div>
-        <img src={this.props.upcomingEventImageSrc} className=""></img>
-        <h3> {this.props.upcomingEventTitle} </h3>
-        <h5> {this.props.upcomingEventDate} </h5>
+        <img src={this.props.userProfilePictureSrc} className=""></img>
+        <h2> {this.props.name} </h2>
+        <p> {this.props.userReview} </p>
       </div>
     )
   }

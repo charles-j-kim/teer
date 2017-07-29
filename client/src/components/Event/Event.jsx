@@ -5,8 +5,8 @@ import { withRouter} from 'react-router'
 import EventBanner from './EventBanner.jsx'
 import EventDetails from './EventDetails.jsx'
 import AboutEventCharity from './AboutEventCharity.jsx'
-import UpcomingEvents from './UpcomingEvents.jsx'
-import EventReviewsList from './EventReviewsList.jsx'
+import UpcomingEventList from './UpcomingEventList.jsx'
+import EventReviewList from './EventReviewList.jsx'
 
 
 class Event extends React.Component {
@@ -29,8 +29,8 @@ class Event extends React.Component {
         <EventBanner className="banner-image" src="./assets/volunteers_working.jpg" />
         <EventDetails />
         <AboutEventCharity />
-        <UpcomingEvents />
-        <EventReviewsList />
+        <UpcomingEventList />
+        <EventReviewList />
 
       </div>
     )

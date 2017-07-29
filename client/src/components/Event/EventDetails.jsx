@@ -14,7 +14,7 @@ class EventDetails extends React.Component {
   render () {
     return (
       <div>
-        <h1> Event Details </h1>
+        <h1> Event Title </h1>
         <h3> Event Date </h3>
         <p> Event Text Description about what the event is about (should wrap automatically ???)</p>
 
