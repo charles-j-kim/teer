@@ -1,28 +1,24 @@
 import React from 'react';
 
-class PastEventReview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+const PastEventReview = function(props) {
+  let count = [];
+  for (let i = 0; i < props.rating; i++) {
+    count.push(i);
   }
 
-  render() {
-    return (
-      <div>
-        <div>On 07/21/2017 you wrote</div>
-          <div>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-            <span>&#9733;</span>
-          </div>
-          <div>
-            The event was great, had a meaningful time with awesome people. Glad I participated.
-          </div>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <div>On {props.date.getMonth() + 1}/{props.date.getDate()}/{props.date.getFullYear()} you wrote</div>
+        <div>
+          {count.map((star, i) =>
+            <span key={i}>&#9733;</span>
+          )}
+        </div>
+        <div>
+          {props.comment}
+        </div>
+    </div>
+  );
+};
 
 export default PastEventReview;
