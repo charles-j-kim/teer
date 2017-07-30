@@ -32,12 +32,20 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 4,
-          email: 'Jane@redcross.com',
+          email: 'jane@redcross.com',
           password: '123',
           first_name: 'Jane',
           last_name: 'Unicef',
           introduction: 'I am a proud member of UNICEF',
           charity_id: 2,
+        },
+        {
+          id: 5,
+          email: 'charles@example.com',
+          password: '123',
+          first_name: 'Charles',
+          last_name: 'Kim',
+          introduction: 'I love helping people in any way possible.',
         }
       ]);
     })
@@ -48,8 +56,8 @@ exports.seed = function(knex, Promise) {
           {
             id: 1,
             name: 'SF Blood Drive',
-            start_date_hr: 'August 8 08:00:00 2017 PST',
-            end_date_hr: 'August 8 17:00:00 2017 PST',
+            start_date_hr: 'July 1 08:00:00 2017 PST',
+            end_date_hr: 'July 1 17:00:00 2017 PST',
             location: 'San Francisco, CA',
             teer_points: 100,
             description: 'Donating Blood Makes a Big Difference in the Lives of Others.',
@@ -87,5 +95,21 @@ exports.seed = function(knex, Promise) {
           },
         ]);
       });
-  });
+  })
+  .then(function() {
+    return knex('reviews').insert([
+      {
+        id: 1,
+        reviewer_id: 5,
+        event_id: 1,
+        comment: 'It was a great opportunity.'
+      },
+      {
+        id: 2,
+        reviewer_id: 4,
+        event_id: 1,
+        comment: 'I had such a meaningful time:)'
+      }
+    ]);
+  })
 };
