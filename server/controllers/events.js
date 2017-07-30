@@ -65,7 +65,7 @@ module.exports.volunteerEvents = function(req, res, next) {
 module.exports.allEvents = function(req, res, next) {
 	knex
 	.raw(
-		`SELECT A.img_url, A.name, A.start_date_hr, C.org_name, A.id
+		`SELECT A.event_img_url, A.name, A.start_date_hr, C.org_name, A.id
 		FROM events A
 		INNER JOIN users B
 		ON A.host_user_id = B.id

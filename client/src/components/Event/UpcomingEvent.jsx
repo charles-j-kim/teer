@@ -8,14 +8,14 @@ class UpcomingEvent extends React.Component {
   }
 
   componentWillMount() {
-
+    console.log('props', this.props)
   }
 
   render () {
     return (
       <div className="upcomingevent">
         <div className="event-image-container">
-        <img className="event-image" src="http://prod.static.panthers.clubs.nfl.com/assets/images/community/header-charity-events.jpg"></img>
+        <img className="event-image" src={this.props.upcomingEventImageSrc}></img>
         </div>
         <div className="event-details">
           <div id="event-title">
