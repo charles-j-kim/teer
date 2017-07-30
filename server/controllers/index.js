@@ -14,13 +14,8 @@ module.exports.view = {
   charity: require('./charity-view').charity
 };
 
-<<<<<<< HEAD
 // Events
-module.exports.event = require('./event');
+module.exports.events = require('./events');
 
 // Reviews
 module.exports.reviews = require('./reviews');
-=======
-// GET events
-module.exports.events = require('./events')
->>>>>>> creates events endpoint that gathers events data from charity id

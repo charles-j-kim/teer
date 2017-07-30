@@ -21,14 +21,9 @@ app.use('/login', jsonParser, routes.login);
 app.use('/view', jsonParser, routes.view);
 
 // GET events
-<<<<<<< HEAD
-app.use('/events', jsonParser, routes.event);
+app.use('/events', jsonParser, routes.events);
 
 // GET reviews
 app.use('/reviews', jsonParser, routes.reviews);
-=======
-app.use('/events', jsonParser, routes.events)
-
->>>>>>> creates events endpoint that gathers events data from charity id
 
 module.exports = app;
