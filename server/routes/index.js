@@ -17,7 +17,7 @@ module.exports.events = require('./events');
 module.exports.reviews = require('./reviews');
 
 // SparkPost
-module.exports.sparkPost = require('./sparkPost')
+module.exports.sparkPost = require('./sparkPost');
 
 // Register to event
 module.exports.registerToEvent = require('./register-to-event');

@@ -12,7 +12,7 @@ class UpcomingEventList extends React.Component {
   }
 
   componentWillMount() {
-    axios.get('/events')
+    axios.get('/events/upcoming')
     .then(response => {
       console.log(response.data);
       let resData = response.data;
@@ -32,7 +32,7 @@ class UpcomingEventList extends React.Component {
           this.state.upcomingEvents.map(function(event, i){
             return(
               <UpcomingEvent
-                upcomingEventImageSrc={event.event_img_url}
+                upcomingEventImageSrc={event.img_url}
                 upcomingEventTitle={event.name}
                 upcomingEventDate={String(event.start_date_hr).slice(0,10)}
                 key={i}
