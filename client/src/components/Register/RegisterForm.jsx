@@ -21,7 +21,8 @@ class RegisterForm extends React.Component {
     this.description = this.description.bind(this);
   }
 
-  onClick() {
+  onClick(e) {
+    e.preventDefault();
     axios.post('/register', {
       first_name: this.state.firstName,
       last_name: this.state.lastName,

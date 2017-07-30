@@ -12,6 +12,7 @@ class Loginform extends React.Component {
     }
     this.email = this.email.bind(this);
     this.password = this.password.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   onClick() {
@@ -21,6 +22,12 @@ class Loginform extends React.Component {
     })
     .then(response => {
       window.localStorage.loggedIn = "true";
+      window.localStorage.email = response.data.email;
+      window.localStorage.first_name = response.data.first_name;
+      window.localStorage.last_name = response.data.last_name;
+      window.localStorage.id = response.data.id;
+      window.localStorage.img_url = response.data.img_url;
+      window.localStorage.total_teer_points = response.data.total_teer_points;
       this.props.history.push('/');
     })
     .catch(error => {
