@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter} from 'react-router';
+import axios from 'axios';
 import ProfilePic from './ProfilePic.jsx';
 import ProfileStats from './ProfileStats.jsx';
 import ProfileBanner from './ProfileBanner.jsx';
@@ -17,6 +18,16 @@ class Profile extends React.Component {
     if (window.localStorage.loggedIn !== 'true') {
       this.props.history.push('/login');
     }
+  }
+
+  componentDidMount() {
+    axios.get(`/events/volunteer/${window.localStorage.id}`)
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   render () {
