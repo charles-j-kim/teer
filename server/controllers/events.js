@@ -18,7 +18,6 @@ module.exports.charityEvents = function(req, res, next) {
     `
   )
   .then(response => {
-<<<<<<< HEAD
     // response.rows[0].comment = [response.rows[0].comment]
     // console.log(response.rows)
     // for ( var i = 1; i < response.rows.length; i++ ) {
@@ -53,8 +52,6 @@ module.exports.volunteerEvents = function(req, res, next) {
     `
   )
   .then(response => {
-=======
->>>>>>> rebase
     res.status(200).send(response);
   })
   .error(function(error) {
