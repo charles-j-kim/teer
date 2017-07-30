@@ -5,6 +5,9 @@ var EventsController = require('../controllers').events;
 router.route('/')
   .get(EventsController.allEvents);
 
+router.route('/:id')
+  .get(EventsController.getOne);
+
 router.route('/charity/:charityId')
   .get(EventsController.charityEvents);
 
