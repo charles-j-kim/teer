@@ -10,7 +10,9 @@ import PastEvents from './PastEvents.jsx';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      userId: 1
+    };
   }
   
   componentWillMount() {

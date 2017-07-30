@@ -8,7 +8,7 @@ router.route('/home')
 router.route('/profile')
   .get(ViewController.profile);
 
-router.route('/charity')
+router.route('/charity/:id')
   .get(ViewController.charity);
 
 

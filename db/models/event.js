@@ -3,13 +3,13 @@ const db = require('../');
 const Event = db.Model.extend({
   tableName: 'events',
   volunteerEvents: function() {
-    this.hasMany('VolunteerEvent', 'event_id');
+    return this.hasMany('VolunteerEvent', 'event_id');
   },
   reviews: function() {
-    this.hasMany('Review', 'event_id');
+    return this.hasMany('Review', 'event_id');
   },
   user: function() {
-    this.belongsTo('User', 'host_user_id');
+    return this.belongsTo('User', 'host_user_id');
   }
 });
 
