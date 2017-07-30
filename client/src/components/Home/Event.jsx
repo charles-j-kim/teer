@@ -21,19 +21,22 @@ class Event extends React.Component {
 
 	render () {
     return (
-    	<div class="event" onClick={this.handleClick}>
-        <div>
+    	<div className="event" onClick={this.handleClick}>
+          <div className="event-image-container">
           <img className="event-image" src={this.props.eventImage}></img>
+          </div>
+        <div className="event-details">
+          <div id="event-title">
+      		  {this.props.eventTitle}
+          </div>
+          <div id="event-date">
+            {this.props.date}
+          </div>
+          <hr/>
+          <div id="organizer">
+            {this.props.organisation}
         </div>
-        <div id="event-title">
-    		  {this.props.eventTitle}
-        </div>
-        <div id="event-date">
-          {this.props.date}
-        </div>
-        <div id="organizer">
-          {this.props.organisation}
-        </div>
+      </div>
     	</div>
   	)
   }

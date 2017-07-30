@@ -20,6 +20,20 @@ class Home extends React.Component {
           eventTitle:"Come build a house",
           date: "Wednesday, July 26, 2017",
           organisation: "Red Cross"
+        },
+        {
+          ID:"4",
+          eventImage:"https://www.quickenloans.com/blog/wp-content/uploads/2015/09/building-a-house.jpg",
+          eventTitle:"Come a house",
+          date: "Wednesday, october 26, 2017",
+          organisation: "coding  Cross"
+        },
+        {
+          ID:"4",
+          eventImage:"https://www.quickenloans.com/blog/wp-content/uploads/2015/09/building-a-house.jpg",
+          eventTitle:"Come a house",
+          date: "Wednesday, october 26, 2017",
+          organisation: "coding  Cross"
         }
       ]
     }
@@ -44,14 +58,23 @@ class Home extends React.Component {
   render () {
     return (
       <div>
+      <div className="toolbar">
         <img className="logo-image" src="./assets/teer_logo.png"></img>
-        <Userinfo firstName={this.state.firstName} lastName={this.state.lastName} profilePic={this.state.profilePic} />
-        <div>
-          <img className="city-cover-image" src="./assets/san_francisco.jpg"></img>
-        </div>
-        <Filter />
-        <h1>This week</h1>
-        <Eventstream events={this.state.events}/>
+          <div className="userinfo">
+            <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
+          <div>
+          </div>
+      </div>
+      <div className="city-image-box">
+      </div>
+      <div className="filter-box">
+      <Filter />
+      </div>
+      <div className="home-body">
+      <h1>This week</h1>
+      <Eventstream events={this.state.events}/>
+      </div>
+      </div>
       </div>
     )
   }
