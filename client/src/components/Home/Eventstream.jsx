@@ -10,7 +10,6 @@ class Eventstream extends React.Component {
 
 	render () {
 		var events = this.props.events;
-
     return (
     	<div className="eventstream">
     		{events.map((eventItem, i)=>
