@@ -15,6 +15,10 @@ class CharityProfile extends React.Component {
       description: '',
       cover_img_url: '',
       small_img_url: '',
+      location: '',
+      reviews: [],
+      pastEvents: [],
+      upcomingEvents: []
     };
   }
 
@@ -28,6 +32,7 @@ class CharityProfile extends React.Component {
         description: resData.description,
         cover_img_url: resData.cover_img_url,
         small_img_url: resData.small_img_url,
+        location: resData.location
       });
     })
     .catch(error => {
@@ -37,6 +42,27 @@ class CharityProfile extends React.Component {
     axios.get(`/reviews/charity/${this.state.charityId}`)
     .then(response => {
       console.log('SECOND', response.data.rows);
+      this.setState({
+        reviews: response.data.rows
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+    axios.get(`/events/charity/${this.state.charityId}`)
+    .then(response => {
+      console.log('THIRD', response);
+      let pastEvents = [];
+      let upcomingEvents = [];
+      response.data.rows.forEach(event => {
+        let endTime = new Date(event.end_date_hr);
+        endTime < new Date() ? pastEvents.push(event) : upcomingEvents.push(event); 
+      });
+      this.setState({
+        pastEvents: pastEvents,
+        upcomingEvents: upcomingEvents
+      });
     })
     .catch(error => {
       console.error(error);
@@ -50,7 +76,7 @@ class CharityProfile extends React.Component {
         <img src={this.state.small_img_url} />
         <div>
           <span>{this.state.org_name}</span>
-          <span>San Francisco, CA, United States</span>
+          <span>{this.state.location}</span>
         </div>
         <div>
           <span>About</span>
@@ -61,9 +87,9 @@ class CharityProfile extends React.Component {
         </div>
         <div>
           <About description={this.state.description} />
-          <Reviews />
-          <UpcomingEvents />
-          <PastEvents />
+          <Reviews reviews={this.state.reviews} />
+          <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
+          <PastEvents pastEvents={this.state.pastEvents} />
         </div>
       </div>
     );

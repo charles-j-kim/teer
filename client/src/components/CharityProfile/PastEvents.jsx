@@ -1,22 +1,15 @@
 import React from 'react';
-import PastEventItem from './PastEventItem.jsx';
+import EventItem from './EventItem.jsx';
 
-class PastEvents extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <h3>Past Events</h3>
-        <PastEventItem />
-        <PastEventItem />
-        <PastEventItem />
-      </div>
-    );
-  }
-}
+const PastEvents = function(props) {
+  return (
+    <div>
+      <h3>Past Events</h3>
+      {props.pastEvents.map((event, i) =>
+        <EventItem key={i} event={event} />
+      )}
+    </div>
+  );
+};
 
 export default PastEvents;
