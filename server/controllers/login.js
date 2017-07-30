@@ -17,5 +17,8 @@ module.exports.login = function (req, res, next) {
       } else {
         res.status(403).send('Permission Denied');
       }
+    })
+    .catch((error) => {
+      res.status(404).send(error);
     });
 }

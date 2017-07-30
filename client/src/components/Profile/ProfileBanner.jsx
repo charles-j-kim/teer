@@ -19,10 +19,10 @@ const ProfileBanner = function(props) {
   
   return (
     <div>
-      <h1>Hi, I'm {props.firstName}!</h1>
-      <span>San Francisco, CA, United States</span>
-      <span> ● </span>
-      <span>Joined in {months[joinedDate.getMonth()]} {joinedDate.getFullYear()}</span>
+      <div className="hi-name">Hi, I'm {props.firstName}!</div>
+      <span className="h3-white">San Francisco, CA, United States</span>
+      <span className="h3-white"> ● </span>
+      <span className="h3-white">Joined in {months[joinedDate.getMonth()]} {joinedDate.getFullYear()}</span>
     </div>
   );
 };

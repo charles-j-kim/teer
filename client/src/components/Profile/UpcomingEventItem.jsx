@@ -28,9 +28,9 @@ const UpcomingEventItem = function(props) {
 
   return (
     <div>
-      <div>
-        <span>{props.event.event_name}</span>
-        <span>on {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()}</span>
+      <div className="user-upcomingevents">
+        <h5>{props.event.event_name}</h5>
+        <h3>on {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()}</h3>
       </div>
     </div>
   );
