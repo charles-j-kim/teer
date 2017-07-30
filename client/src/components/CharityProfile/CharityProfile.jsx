@@ -16,7 +16,9 @@ class CharityProfile extends React.Component {
       cover_img_url: '',
       small_img_url: '',
       location: '',
-      reviews: []
+      reviews: [],
+      pastEvents: [],
+      upcomingEvents: []
     };
   }
 
@@ -47,6 +49,24 @@ class CharityProfile extends React.Component {
     .catch(error => {
       console.error(error);
     });
+
+    axios.get(`/events/charity/${this.state.charityId}`)
+    .then(response => {
+      console.log('THIRD', response.data);
+      let pastEvents = [];
+      let upcomingEvents = [];
+      response.data.forEach(event => {
+        let endTime = new Date(event.end_date_hr);
+        endTime < new Date() ? pastEvents.push(event) : upcomingEvents.push(event); 
+      });
+      this.setState({
+        pastEvents: pastEvents,
+        upcomingEvents: upcomingEvents
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   render() {
@@ -68,8 +88,8 @@ class CharityProfile extends React.Component {
         <div>
           <About description={this.state.description} />
           <Reviews reviews={this.state.reviews} />
-          <UpcomingEvents />
-          <PastEvents />
+          <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
+          <PastEvents pastEvents={this.state.pastEvents} />
         </div>
       </div>
     );

@@ -1,14 +1,14 @@
 var models = require('../../db/models');
 
 module.exports.events = function(req, res, next) {
-  if ( req.query.charity_id ) {
+  if ( req.params.charityId ) {
     models.User.forge()
-    .where( {charity_id: req.query.charity_id} )
+    .where( {charity_id: req.params.charityId} )
     .fetchAll()
     .then( (users) => {
       var userIds = [];
       users.models.forEach(function(val) {
-        userIds.push(val.attributes.id)
+        userIds.push(val.attributes.id);
       });
       return userIds;
     })
@@ -26,10 +26,10 @@ module.exports.events = function(req, res, next) {
             teer_points: event.models[0].attributes.teer_points
           });
           if ( idx === params.length - 1 ) {
-            res.status(200).send(eventsOutput)
+            res.status(200).send(eventsOutput);
           }
-        })
+        });
       });
-    })
+    });
   }
-}
+};

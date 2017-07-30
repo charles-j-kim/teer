@@ -5,8 +5,8 @@ const Reviews = function(props) {
   return (
     <div>
       <h3>Reviews</h3>
-      {props.reviews.map(review =>
-        <ReviewItem review={review} />
+      {props.reviews.map((review, i) =>
+        <ReviewItem key={i} review={review} />
       )}
     </div>
   );
