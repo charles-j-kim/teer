@@ -21,6 +21,7 @@ class CharityProfile extends React.Component {
   componentDidMount() {
     axios.get(`/view/charity/${this.state.charityId}`)
     .then(response => {
+      console.log(response.data);
       let resData = response.data;
       this.setState({
         org_name: resData.org_name,
