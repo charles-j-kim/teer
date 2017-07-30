@@ -1,51 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import EventReview from './EventReview.jsx'
+import axios from 'axios';
+
 
 class EventReviewList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      "eventReviews":[
-        {
-          "user": {
-            "name": "Ryan",
-            "profilePictureSrc": "./assets/bla"
-          },
-          "reviewText":"This event was awesome!"
-        },
-        {
-          "user": {
-            "name": "Tom",
-            "profilePictureSrc": "./assets/bla"
-          },
-          "reviewText":"I had so much fun at this last year! Memmories for a lifetime!"
-        },
-      ]
+      eventId: 1,
+      reviewData: []
     }
   }
 
   componentWillMount() {
-
+    axios.get(`/events/review/${this.state.eventId}`)
+    .then(response => {
+      console.log(response.data);
+      let resData = response.data;
+      this.setState({
+        reviewData: response.data
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    })
   }
 
   render () {
     return (
       <div>
-        {
-          this.state.eventReviews.map(
-            function(review, i){
-            return(
-              <EventReview
-                userProfilePictureSrc={review.user.profilePictureSrc}
-                name={review.user.name}
-                userReview={review.reviewText}
-                key={i}
-              >
-              </EventReview>
-            )
-          })
-        }
+        {this.state.reviewData.map(
+          function(review, i) {
+          return(
+            <EventReview
+              userProfilePictureSrc={review.img_url}
+              name={review.first_name}
+              userReview={review.comment}
+              key={i}
+            >
+            </EventReview>
+          )
+        })}
       </div>
     )
   }

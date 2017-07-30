@@ -11,6 +11,7 @@ exports.seed = function(knex, Promise) {
           last_name: 'Cross',
           introduction: 'I am a proud member of Red Cross',
           charity_id: 1,
+          img_url: 'https://vignette4.wikia.nocookie.net/rickandmorty/images/d/dd/Rick.png/revision/latest?cb=20131230003659'
         },
         {
           id: 2,
@@ -20,6 +21,7 @@ exports.seed = function(knex, Promise) {
           last_name: 'Cross',
           introduction: 'I am a proud member of Red Cross',
           charity_id: 1,
+          img_url: 'http://i.telegraph.co.uk/multimedia/archive/02506/mary-riddell2_2506412f.jpg'
         },
         {
           id: 3,
