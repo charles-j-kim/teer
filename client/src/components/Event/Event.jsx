@@ -92,13 +92,6 @@ class Event extends React.Component {
             eventDescription = {this.state.events.description}
             charityLocation = {this.state.events.location}
           />
-          {this.state.signedUp ? (
-            <div></div>          
-          ) : (
-            <div>
-              <button type="button" onClick={this.signupButton}>Sign up now!</button>
-            </div>
-          )}
           <hr/>
           <div onClick={this.clickCharity}>
           <AboutEventCharity
@@ -116,7 +109,16 @@ class Event extends React.Component {
           <hr/>
         <h2> Upcoming Events</h2>
         <br/>
-          </div>
+        </div>
+        <div className="event-body-right">
+        {this.state.signedUp ? (
+            <div></div>          
+          ) : (
+            <div>
+              <button type="button" onClick={this.signupButton}>Sign up now!</button>
+            </div>
+          )}
+        </div>
           <UpcomingEventList />
         </div>
         <Chat/>

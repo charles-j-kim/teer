@@ -225,6 +225,7 @@ button:hover {
 #date {
 	width: 330px;
 	display: inline-block;
+	position: absolute;
 
 }
 
@@ -348,6 +349,29 @@ hr {
 	float: left;
 	display: block;
 	margin-left: 10px;
+}
+
+.event-body-right {
+	display: inline-block;
+	float: right;
+  position: sticky;
+  top: 0px;
+  padding-right: 10px;
+}
+
+.event-body-right button {
+	width: 240px;
+	height: 40px;
+	background-color: #28c97c;
+	border: none;
+	color: #fff;
+	font-weight: 700;
+	font-size: 16pt;
+	border-radius: 0 0 5px 5px;
+}
+
+.event-body-right button:hover {
+	background-color: #f74686;
 }
 
 p {
