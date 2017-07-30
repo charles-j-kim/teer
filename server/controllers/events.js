@@ -2,6 +2,7 @@ var models = require('../../db/models');
 const knex = require('knex')(require('../../knexfile'));
 
 module.exports.charityEvents = function(req, res, next) {
+  console.log(req.params.charityId)
   knex.raw(
     `
     SELECT
@@ -17,6 +18,7 @@ module.exports.charityEvents = function(req, res, next) {
     `
   )
   .then(response => {
+<<<<<<< HEAD
     // response.rows[0].comment = [response.rows[0].comment]
     // console.log(response.rows)
     // for ( var i = 1; i < response.rows.length; i++ ) {
@@ -51,6 +53,8 @@ module.exports.volunteerEvents = function(req, res, next) {
     `
   )
   .then(response => {
+=======
+>>>>>>> rebase
     res.status(200).send(response);
   })
   .error(function(error) {
@@ -83,10 +87,8 @@ module.exports.allEvents = function(req, res, next) {
 module.exports.getOne = function(req, res, next) {
 	knex
 	.raw(
-		`SELECT A.img_url, A.name, A.start_date_hr, C.org_name, A.id, A.description, A.location, C.description, R.comment
+		`SELECT A.img_url, A.name, A.start_date_hr, C.org_name, A.id, A.description, A.location, C.description
 		FROM events A
-    INNER JOIN reviews R
-    ON R.event_id = A.id
 		INNER JOIN users B
 		ON A.host_user_id = B.id
 		INNER JOIN charities C
@@ -101,3 +103,57 @@ module.exports.getOne = function(req, res, next) {
 		res.send(400);
 	})
 };
+
+module.exports.getReview = function(req, res, next) {
+	knex
+	.raw(
+		`SELECT A.id, B.first_name, B.img_url, R.comment
+		FROM events A
+    INNER JOIN reviews R
+    ON R.event_id = A.id
+		INNER JOIN users B
+		ON A.host_user_id = B.id
+		AND A.id = '${req.params.id}'`)
+	.then(events => {
+		res.send(events.rows)
+	})
+	.catch(error => {
+		console.log('Error when GET:ing the events for id ' + req.params.id, error);
+		res.send(400);
+	})
+};
+
+
+// module.exports.charityEvents = function(req, res, next) {
+//   console.log(req.params.charityId)
+//   knex.raw(
+//     `
+//     SELECT
+//       ee.name,
+//       ee.start_date_hr,
+//       ee.end_date_hr,
+//       ee.teer_points,
+//       rr.comment
+//     FROM events AS ee
+//       INNER JOIN users AS uu ON uu.id = ee.host_user_id
+//       INNER JOIN charities AS cc ON cc.id = uu.charity_id
+//       INNER JOIN reviews AS rr ON rr.event_id = ee.id
+//     WHERE cc.id = ${req.params.charityId}
+//     ORDER BY ee.end_date_hr DESC
+//     `
+//   )
+//   .then(response => {
+//     response.rows[0].comment = [response.rows[0].comment]
+//     console.log(response.rows)
+//     for ( var i = 1; i < response.rows.length; i++ ) {
+//       response.rows[0].comment.push(response.rows[i].comment)
+//     }
+//     res.status(200).send(response.rows[0]);
+//   })
+//   .error(function(error) {
+//     res.status(500).send(error);
+//   })
+//   .catch(function(error) {
+//     res.status(404).send(error);
+//   });
+// };

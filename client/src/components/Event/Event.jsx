@@ -13,7 +13,7 @@ import Chat from '../Chat/Chat.jsx'
 class Event extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       firstName: 'Joe',
       lastName: 'Doe',
       profilePic: 'https://content-static.upwork.com/uploads/2014/10/02123010/profile-photo_friendly.jpg',
@@ -36,7 +36,7 @@ class Event extends React.Component {
   }
 
   componentDidMount() {
-    var wantedEventID = this.props.location.state.eventID;
+    var wantedEventID = 1 || this.props.location.state.eventID;
     axios.get('/events/' + wantedEventID)
     .then(response => {
       console.log(response.data[0]);
