@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import 'react-date-picker/index.css'
 import { DateField, Calendar } from 'react-date-picker'
 import moment from 'moment'
+import PlacesAutocomplete from 'react-places-autocomplete'
+import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete'
+
 
 
 class Filter extends React.Component {

@@ -107,6 +107,7 @@ class Autocomplete extends React.Component {
 
     return (
       <div className='autocomplete-wrapper'>
+
           <PlacesAutocomplete
             onSelect={this.handleSelect}
             autocompleteItem={AutocompleteItem}
@@ -118,6 +119,7 @@ class Autocomplete extends React.Component {
           {!this.state.loading && this.state.geocodeResults ?
             <div className='geocoding-results'>{this.state.geocodeResults}</div> :
           null}
+
       </div>
     )
   }
