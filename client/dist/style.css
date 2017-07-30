@@ -193,13 +193,14 @@ button:hover {
 }
 
 #location {
-	width: 400px;
+	width: 500px;
 	margin-right: 10px;
 	display: inline-block;
 }
 
 .location-search-input {
 	margin: 0;
+	margin-right: 10px;
 	display: inline-block;
 	width: 500px;
 }
@@ -210,19 +211,19 @@ button:hover {
 }
 
 .Demo__search-input{
-	width: 400px;
+	width: 500px;
 	margin-right: 10px;
 	display: inline-block;
 }
 
 .Demo__autocomplete-container{
-	width: 400px;
+	width: 500px;
 	margin-right: 10px;
 	display: inline-block;
 }
 
 #date {
-	width: 200px;
+	width: 330px;
 	display: inline-block;
 
 }
@@ -696,6 +697,15 @@ h5 {
 }
 
 .react-date-picker__calendar--theme-default, .react-date-picker__month-view--theme-default, .react-date-picker__date-field--theme-default, .react-date-picker__transition-month-view--theme-default {
+	font-size: 1em;
+    width: 330px;
+	border: none;
+    position: relative;
+    left: 265px;
+	box-sizing: border-box;
+}
+
+div.react-date-picker__calendar--theme-default{
 	border: none;
 }
 
@@ -716,6 +726,7 @@ h5 {
 	width: 300px;
 	background-color: #fff;
 	border: solid #cecece;
+	border-radius: 5px 5px 0 0;
 	border-width: 1px;
 }
 
@@ -754,7 +765,9 @@ h5 {
 	border-radius: 3px;
 	padding: 8px;
 	outline: none;
-	width: 234px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 10pt;
 }
 
 #live-chat form {
@@ -779,8 +792,12 @@ h5 {
 	background: #fff;
 }
 
+.chat-input {
+	height: 100px;
+}
+
 .chat-history {
-	height: 252px;
+	height: 300px;
 	padding: 8px 24px;
 	overflow-y: scroll;
 }
@@ -796,11 +813,13 @@ h5 {
 
 .chat-message-content {
 	margin-left: 56px;
+	width: 200px;
 }
 
 .chat-time {
 	float: right;
-	font-size: 10px;
+	font-size: 9px;
+	color: #cecece;
 }
 
 .chat-feedback {
@@ -810,11 +829,34 @@ h5 {
 
 .chat-img {
 	border-radius: 50%;
+	display: inline-block;
 }
 
 fieldset {
 	border: solid #cecece;
 	border-width: 1px 0 0 0;
 	margin: 0;
+}
 
+.one-chat {
+	margin: 15px;
+}
+
+.sender-name {
+	color: #28c97c;
+	display: inline-block;
+	width: 100px;
+	margin-left: 10px;
+	position: relative;
+	top: -12px;
+}
+
+.message {
+	display: inline-block;
+	width: 270px;
+	border: solid #cecece;
+	border-width: 1px;
+	font-size: 11pt;
+	padding: 3px;
+	box-sizing: border-box;
 }
