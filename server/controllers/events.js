@@ -2,7 +2,6 @@ var models = require('../../db/models');
 const knex = require('knex')(require('../../knexfile'));
 
 module.exports.charityEvents = function(req, res, next) {
-  console.log(req.params.charityId)
   knex.raw(
     `
     SELECT
@@ -26,6 +25,35 @@ module.exports.charityEvents = function(req, res, next) {
       response.rows[0].comment.push(response.rows[i].comment)
     }
     res.status(200).send(response.rows[0]);
+  })
+  .error(function(error) {
+    res.status(500).send(error);
+  })
+  .catch(function(error) {
+    res.status(404).send(error);
+  });
+};
+
+module.exports.volunteerEvents = function(req, res, next) {
+  knex.raw(
+    `
+    SELECT
+      ee.name AS event_name,
+      ee.end_date_hr,
+      ee.teer_points,
+      rr.created_at AS review_date,
+      rr.rating,
+      rr.comment
+    FROM events AS ee
+      INNER JOIN volunteer_events AS ve ON ve.event_id = ee.id
+      INNER JOIN users AS uu ON uu.id = ve.volunteer_id
+      LEFT JOIN reviews AS rr ON (rr.event_id = ee.id AND rr.reviewer_id = uu.id)
+    WHERE ve.volunteer_id = ${req.params.volunteerId}
+    ORDER BY ee.end_date_hr DESC
+    `
+  )
+  .then(response => {
+    res.status(200).send(response);
   })
   .error(function(error) {
     res.status(500).send(error);

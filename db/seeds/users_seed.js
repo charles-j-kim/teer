@@ -112,4 +112,28 @@ exports.seed = function(knex, Promise) {
       }
     ]);
   })
+  .then(function () {
+    return knex('volunteer_events').insert([
+      {
+        id: 1,
+        volunteer_id: 5,
+        event_id: 1
+      },
+      {
+        id: 2,
+        volunteer_id: 5,
+        event_id: 3
+      },
+      {
+        id: 3,
+        volunteer_id: 1,
+        event_id: 4
+      },
+      {
+        id: 4,
+        volunteer_id: 5,
+        event_id: 2
+      }
+    ]);
+  });
 };
