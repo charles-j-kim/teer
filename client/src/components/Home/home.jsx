@@ -48,7 +48,8 @@ class Home extends React.Component {
   componentDidMount() {
     axios.get('/events')
     .then(response => {
-      this.setState({events: response.data});
+      console.log(response)
+      this.setState({events: response.data.rows});
     })
     .catch(error => {
       console.error(error);
@@ -71,7 +72,7 @@ class Home extends React.Component {
       <Filter />
       </div>
       <div className="home-body">
-      <h1>This week</h1>
+      <h1 className="leftmargin">This week</h1>
       <Eventstream events={this.state.events}/>
       </div>
       </div>
