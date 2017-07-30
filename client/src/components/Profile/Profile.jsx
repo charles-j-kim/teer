@@ -17,7 +17,8 @@ class Profile extends React.Component {
       lastName: 'Doe',
       profilePic: 'https://content-static.upwork.com/uploads/2014/10/02123010/profile-photo_friendly.jpg',
       pastEvents: [],
-      upcomingEvents: []
+      upcomingEvents: [],
+      userId: 1
     };
     this.clickLogo = this.clickLogo.bind(this);
   }
