@@ -1,28 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 class EventReview extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      eventId: 1,
+      reviews: [],
+      reviewerName: '',
+      reviewerImg: ''
+    }
   }
 
   componentWillMount() {
-
+    axios.get(`/review-event/${this.state.eventId}`)
+    .then(response => {
+      let resData = response.data;
+      this.setState({
+        reviews = resData.reviews,
+        reviewerName= resData.reviewerName,
+        reviewerImg= resData.reviewerImg
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    })
   }
 
   render () {
     return (
       <div className="review">
-        <div className="review-user">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkKxeD83GnmGOdVNO96xnMHfS3TLV4enbX3W_sV-4yIgXfQrm7" className="review-profileimg"></img>
-          <div className="review-name"> 
-            {this.props.name} 
-          </div>
-        </div>
-        <div className="review-body">
-        {this.props.userReview}
-        </div>
+        {this.state.map((review) {
+          <EventReviewList
+            <div className="review-user">
+              <img src={review.reviewerImg} className="review-profileimg"></img>
+              <div className="review-name">
+                {revew.reviewerName}
+              </div>
+            </div>
+            <div className="review-body">
+              {review.reviews}
+            </div>
+          />
+        })}
       </div>
     )
   }

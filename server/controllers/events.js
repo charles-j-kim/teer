@@ -83,8 +83,10 @@ module.exports.allEvents = function(req, res, next) {
 module.exports.getOne = function(req, res, next) {
 	knex
 	.raw(
-		`SELECT A.img_url, A.name, A.start_date_hr, C.org_name, A.id, A.description, A.location, C.description
+		`SELECT A.img_url, A.name, A.start_date_hr, C.org_name, A.id, A.description, A.location, C.description, R.comment
 		FROM events A
+    INNER JOIN reviews R
+    ON R.event_id = A.id
 		INNER JOIN users B
 		ON A.host_user_id = B.id
 		INNER JOIN charities C
