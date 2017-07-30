@@ -46,13 +46,13 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    // axios.get('/event')
-    // .then(response => {
-    //   this.setState({events: respose});
-    // })
-    // .catch(error => {
-    //   console.error(error);
-    // });
+    axios.get('/events')
+    .then(response => {
+      this.setState({events: response.data});
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   render () {
