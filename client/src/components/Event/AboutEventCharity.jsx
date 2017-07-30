@@ -13,10 +13,9 @@ class AboutEventCharity extends React.Component {
   render () {
     return (
       <div>
-        <h1> About Event Charity </h1>
-        <h2> Name: {this.props.charityName} </h2>
-        <h3> Location: {this.props.charityLocation} </h3>
-        <p> Description: {this.props.charityDescription} </p>
+        <h2> About {this.props.charityName} </h2>
+        <h3> {this.props.charityLocation} </h3>
+        <p> {this.props.charityDescription} </p>
       </div>
     )
   }

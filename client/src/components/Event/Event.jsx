@@ -12,7 +12,10 @@ import Userinfo from './Userinfo.jsx';
 class Event extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = { 
+      firstName: 'Joe',
+      lastName: 'Doe',
+      profilePic: 'https://content-static.upwork.com/uploads/2014/10/02123010/profile-photo_friendly.jpg',
       events: {
         name: "Fund raiser",
         start_date_hr: "2017-02-20",
@@ -52,22 +55,33 @@ class Event extends React.Component {
           </div>
         </div>
         <div className="eventbanner-container">
-        <EventBanner className="banner-image" src="./assets/volunteers_working.jpg" />
+           <EventBanner className="banner-image" src="./assets/volunteers_working.jpg" />
         </div>
         <div className="event-body">
-        <EventDetails
-          eventTitle = {this.state.events.name}
-          eventDate = {this.state.events.start_date_hr}
-          eventDescription = {this.state.events.description}
-          charityLocation = {this.state.events.location}
-        />
-        <AboutEventCharity
-          charityName = {this.state.events.org_name}
-          charityLocation = {this.state.events.location}
-          charityDescription = {this.state.events.description}
-        />
-        <UpcomingEventList />
-        <EventReviewList />
+          <div className="event-body-left">
+          <EventDetails
+            eventTitle = {this.state.events.name}
+            eventDate = {this.state.events.start_date_hr}
+            eventDescription = {this.state.events.description}
+            charityLocation = {this.state.events.location}
+          />
+          <hr/>
+          <AboutEventCharity
+            charityName = {this.state.events.org_name}
+            charityLocation = {this.state.events.location}
+            charityDescription = {this.state.events.description}
+          />
+          <hr/>
+
+        <h2>Event Review</h2>
+        <br/>
+          <EventReviewList />
+          <br/>
+          <hr/>
+        <h2> Upcoming Events</h2>
+        <br/>
+          </div>
+          <UpcomingEventList />
         </div>
 
       </div>

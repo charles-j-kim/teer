@@ -32,7 +32,6 @@ class EventReviewList extends React.Component {
   render () {
     return (
       <div>
-        <h1> EventReview List </h1>
         {
           this.state.eventReviews.map(
             function(review, i){

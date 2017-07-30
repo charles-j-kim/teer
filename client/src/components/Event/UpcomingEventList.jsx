@@ -33,8 +33,6 @@ class UpcomingEventList extends React.Component {
   render () {
     return (
       <div>
-        <h1> Upcoming Event List</h1>
-        <p> Here will map a list of upcomingEvent components </p>
         {
           this.state.upcomingEvents.map(function(event, i){
             return(

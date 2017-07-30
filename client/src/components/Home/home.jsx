@@ -71,7 +71,7 @@ class Home extends React.Component {
       <Filter />
       </div>
       <div className="home-body">
-      <h1>This week</h1>
+      <h1 className="leftmargin">This week</h1>
       <Eventstream events={this.state.events}/>
       </div>
       </div>
