@@ -93,6 +93,7 @@ class Event extends React.Component {
         </div>
         <Chat/>
 
+
       </div>
     )
   }
