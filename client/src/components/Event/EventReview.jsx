@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 
 class EventReview extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      reviewData: []
-    }
+    this.state = {}
   }
 
   componentWillMount() {
-    console.log('props', this.props)
   }
 
   render () {

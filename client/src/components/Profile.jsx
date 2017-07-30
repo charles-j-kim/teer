@@ -7,11 +7,22 @@ class Profile extends React.Component {
     super(props);
     this.state = {}
   }
-  
+
   componentWillMount() {
     if (window.localStorage.loggedIn !== "true") {
       this.props.history.push('/login');
     }
+    axios.get(`/events/review/${this.state.eventId}`)
+    .then(response => {
+      console.log(response.data);
+      let resData = response.data;
+      this.setState({
+        reviewData: response.data
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    })
   }
 
   render () {

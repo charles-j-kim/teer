@@ -14,8 +14,8 @@ router.route('/review/:id')
 router.route('/charity/:charityId')
   .get(EventsController.charityEvents);
 
-// router.route('/volunteer/:volunteerId')
-//   .get(EventsController.volunteerEvents);
+router.route('/volunteer/:volunteerId')
+  .get(EventsController.volunteerEvents);
 
 
 module.exports = router;
