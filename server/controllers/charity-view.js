@@ -2,26 +2,7 @@ const models = require('../../db/models');
 
 module.exports.charity = function (req, res) {
   console.log(req.params);
-  models.Charity.where({id: req.params.id})
-  .fetchAll({
-    withRelated: [
-      {
-        'users': function(qb) {
-          qb.select();
-        }
-      },
-      {
-        'users.events': function(qb) {
-          qb.select();
-        }
-      },
-      {
-        'users.events.reviews': function(qb) {
-          qb.select();
-        }
-      }
-    ]
-  })
+  models.Charity.where({id: req.params.id}).fetch()
   .then(function(result) {
     res.status(200).send(result);
   })

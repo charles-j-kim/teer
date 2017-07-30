@@ -33,6 +33,14 @@ class CharityProfile extends React.Component {
     .catch(error => {
       console.error(error);
     });
+
+    axios.get(`/reviews/charity/${this.state.charityId}`)
+    .then(response => {
+      console.log('SECOND', response.data.rows);
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   render() {

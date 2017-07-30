@@ -13,3 +13,5 @@ module.exports.view = require('./view');
 // Event
 module.exports.event = require('./event');
 
+// Reviews
+module.exports.reviews = require('./reviews');

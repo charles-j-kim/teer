@@ -1,7 +1,7 @@
 var express = require('express');
 var routes = require('./routes');
-var bodyParser = require('body-parser')
-var jsonParser = bodyParser.json()
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
 
 var app = express();
 
@@ -23,5 +23,7 @@ app.use('/view', jsonParser, routes.view);
 // GET events
 app.use('/events', jsonParser, routes.event);
 
+// GET reviews
+app.use('/reviews', jsonParser, routes.reviews);
 
 module.exports = app;
