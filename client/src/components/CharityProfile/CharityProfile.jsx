@@ -29,7 +29,9 @@ class CharityProfile extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/view/charity/${this.state.charityId}`)
+    let currentCharityId = this.props.location.state.charityID;
+
+    axios.get(`/view/charity/${currentCharityId}`)
     .then(response => {
       console.log(response.data);
       let resData = response.data;
@@ -45,7 +47,7 @@ class CharityProfile extends React.Component {
       console.error(error);
     });
 
-    axios.get(`/reviews/charity/${this.state.charityId}`)
+    axios.get(`/reviews/charity/${currentCharityId}`)
     .then(response => {
       console.log('SECOND', response.data.rows);
       this.setState({
@@ -56,7 +58,7 @@ class CharityProfile extends React.Component {
       console.error(error);
     });
 
-    axios.get(`/events/charity/${this.state.charityId}`)
+    axios.get(`/events/charity/${currentCharityId}`)
     .then(response => {
       console.log('THIRD', response);
       let pastEvents = [];

@@ -13,9 +13,10 @@ module.exports.charityReviews = function(req, res) {
       uu.last_name,
       uu.img_url
     FROM reviews AS rr
+      INNER JOIN users AS uu ON uu.id = rr.reviewer_id
       INNER JOIN events AS ee ON ee.id = rr.event_id
-      INNER JOIN users AS uu ON uu.id = ee.host_user_id
-      INNER JOIN charities AS cc ON cc.id = uu.charity_id
+      INNER JOIN users AS uu2 ON uu2.id = ee.host_user_id
+      INNER JOIN charities AS cc ON cc.id = uu2.charity_id
     WHERE cc.id = ${req.params.charityId}
     ORDER BY rr.created_at DESC
     `
