@@ -7,6 +7,7 @@ class Chat extends React.Component {
     super(props);
     this.state = {
       chatInput: '',
+      hideChat: false,
       chatMessages: [
       {
         time: "13:35",
@@ -24,9 +25,15 @@ class Chat extends React.Component {
     }
     this.chatInput = this.chatInput.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.closeChat = this.closeChat.bind(this);
+    this.openChat = this.openChat.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
   }
 
   componentWillMount() {
+    // Click event
+    document.addEventListener("keydown", this.onKeyDown);
+    // Satori socket logic
     this.rtm = new RTM("wss://q3in2cm3.api.satori.com", "a8f9eF59A173dC7ddb511EfDEeE0faaf");
     var subscription = this.rtm.subscribe('chats', RTM.SubscriptionMode.SIMPLE);
     
@@ -36,6 +43,8 @@ class Chat extends React.Component {
         var msgs = context.state.chatMessages;
         msgs.push(pdu.body.messages[0])
         context.setState({chatMessages: msgs});
+        context.setState({hideChat: false});
+        context.refs.a.scrollTop = context.refs.a.scrollHeight;
     });
 
     this.rtm.on("data", function(pdu) {
@@ -67,30 +76,52 @@ class Chat extends React.Component {
         }
       });
       this.setState({chatInput: ''});
-      this.refs.a.scrollTop = this.refs.a.scrollHeight;
+    }
+  }
+
+  closeChat(e) {
+    this.setState({hideChat: true});
+  }
+
+  openChat(e) {
+    this.setState({hideChat: false});
+  }
+
+  onKeyDown(e) {
+    if (e.keyCode === 27) {
+      this.setState({hideChat: true});
     }
   }
 
 	render () {
 	  return (
 	  	<div>
-        <div id="live-chat">
-          <header class="clearfix">
-          </header>
-          <div class="chat">
-            <div class="chat-history" style={styles.chat} ref = "a">
-              {this.state.chatMessages.map(chat => <ChatMessage time={chat.time} sender={chat.sender} avatar={chat.avatar} message={chat.message}/>)}
+        {!this.state.hideChat ? (
+          <div id="live-chat">
+            <header class="clearfix" onClick={this.closeChat}>
+            <a class="chat-close">x</a>
+            </header>
+            <div class="chat">
+              <div class="chat-history" style={styles.chat} ref = "a">
+                {this.state.chatMessages.map(chat => <ChatMessage time={chat.time} sender={chat.sender} avatar={chat.avatar} message={chat.message}/>)}
+              </div>
+            </div>
+            <div>
+              <form>
+                <fieldset>
+                  <input type="text" value={this.state.chatInput} placeholder="Say something.." autofocus onChange={this.chatInput} onKeyPress={this.handleKeyPress}/>
+                  <input type="hidden"/>
+                </fieldset>
+              </form>
             </div>
           </div>
-          <div> 
-            <form>
-              <fieldset>
-                <input type="text" value={this.state.chatInput} placeholder="Say something.." autofocus onChange={this.chatInput} onKeyPress={this.handleKeyPress}/>
-                <input type="hidden"/>
-              </fieldset>
-            </form>
+        ) : (
+          <div id="live-chat">
+            <header class="clearfix" onClick={this.openChat}>
+            <a class="chat-close">_</a>
+            </header>
           </div>
-        </div>
+        )}
 	  	</div>
   	)
   }

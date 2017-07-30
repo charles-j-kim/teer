@@ -26,6 +26,7 @@ class Event extends React.Component {
         img_url: "http://prod.static.panthers.clubs.nfl.com/assets/images/community/header-charity-events.jpg"
       }
     }
+    this.logoClick = this.logoClick.bind(this);
   }
 
   componentWillMount() {
@@ -46,11 +47,15 @@ class Event extends React.Component {
     });
   }
 
+  logoClick() {
+    this.props.history.push('/');
+  }
+
   render () {
     return (
-            <div>
+      <div>
         <div className="toolbar">
-          <img className="logo-image" src="./assets/teer_logo.png"></img>
+          <img className="logo-image" src="./assets/teer_logo.png" onClick={this.logoClick}></img>
           <div className="userinfo">
             <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
           </div>
