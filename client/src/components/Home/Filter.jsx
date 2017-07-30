@@ -45,7 +45,8 @@ class Filter extends React.Component {
     return (
     	<div className="filter">
     		<form className="filter-form">
-          <Autocomplete onClick={this.cancelCalendar.bind(this)}/>
+          <Autocomplete onClick={this.cancelCalendar.bind(this)}>
+          </Autocomplete>
           <input id="date" type="text" placeholder="Pick a date" value={this.state.date} onClick={this.handleDateClick} />
           <button id="search" type="submit"> Search </button>
         </form>

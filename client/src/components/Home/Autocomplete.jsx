@@ -86,7 +86,7 @@ class Autocomplete extends React.Component {
 
   render() {
     const cssClasses = {
-      root: 'form-group',
+      root: 'location-search-input',
       input: 'Demo__search-input',
       autocompleteContainer: 'Demo__autocomplete-container',
     }
@@ -111,7 +111,7 @@ class Autocomplete extends React.Component {
     }
 
     return (
-      <div className='autocomplete-wrapper'>
+      <div className='location-search-input'>
 
           <PlacesAutocomplete
             onSelect={this.handleSelect}
@@ -124,6 +124,7 @@ class Autocomplete extends React.Component {
           {!this.state.loading && this.state.geocodeResults ?
             <div className='geocoding-results'>{this.state.geocodeResults}</div> :
           null}
+
 
       </div>
     )
