@@ -16,7 +16,7 @@ class Userinfo extends React.Component {
 
 	render () {
     return (
-    	<div className="userinfo" onClick={this.profilePageClick}>
+    	<div class="userinfo" onClick={this.profilePageClick}>
         <div id="profilepic">
           <img className="profile-image" src={this.props.profilePic}></img>
         </div>
