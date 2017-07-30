@@ -225,6 +225,7 @@ button:hover {
 #date {
 	width: 330px;
 	display: inline-block;
+	position: absolute;
 
 }
 
