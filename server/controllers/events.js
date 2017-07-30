@@ -9,7 +9,8 @@ module.exports.charityEvents = function(req, res, next) {
       ee.name,
       ee.start_date_hr,
       ee.end_date_hr,
-      ee.teer_points
+      ee.teer_points,
+      ee.id
     FROM events AS ee
       INNER JOIN users AS uu ON uu.id = ee.host_user_id
       INNER JOIN charities AS cc ON cc.id = uu.charity_id
@@ -65,7 +66,7 @@ module.exports.volunteerEvents = function(req, res, next) {
 module.exports.allEvents = function(req, res, next) {
 	knex
 	.raw(
-		`SELECT A.event_img_url, A.name, A.start_date_hr, C.org_name, A.id
+		`SELECT A.img_url, A.name, A.start_date_hr, C.org_name, A.id, C.id AS charity_id
 		FROM events A
 		INNER JOIN users B
 		ON A.host_user_id = B.id
@@ -84,7 +85,7 @@ module.exports.allEvents = function(req, res, next) {
 module.exports.getOne = function(req, res, next) {
 	knex
 	.raw(
-		`SELECT A.img_url, A.name, A.start_date_hr, C.org_name, A.id, A.description, A.location, C.description
+		`SELECT A.img_url, A.name, A.start_date_hr, C.org_name, A.id, A.description, A.location, C.description, C.id AS org_id
 		FROM events A
 		INNER JOIN users B
 		ON A.host_user_id = B.id

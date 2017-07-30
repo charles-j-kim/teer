@@ -25,10 +25,15 @@ class CharityProfile extends React.Component {
       pastEvents: [],
       upcomingEvents: []
     };
+    this.clickProfile = this.clickProfile.bind(this);
+    this.clickLogo = this.clickLogo.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`/view/charity/${this.state.charityId}`)
+    if (window.localStorage.loggedIn !== "true") {
+      this.props.history.push('/login');
+    }
+    axios.get(`/view/charity/${this.props.location.state.charityID}`)
     .then(response => {
       console.log(response.data);
       let resData = response.data;
@@ -43,8 +48,7 @@ class CharityProfile extends React.Component {
     .catch(error => {
       console.error(error);
     });
-
-    axios.get(`/reviews/charity/${this.state.charityId}`)
+    axios.get(`/reviews/charity/${this.props.location.state.charityID}`)
     .then(response => {
       console.log('SECOND', response.data.rows);
       this.setState({
@@ -55,7 +59,7 @@ class CharityProfile extends React.Component {
       console.error(error);
     });
 
-    axios.get(`/events/charity/${this.state.charityId}`)
+    axios.get(`/events/charity/${this.props.location.state.charityID}`)
     .then(response => {
       console.log('THIRD', response);
       let pastEvents = [];
@@ -74,13 +78,21 @@ class CharityProfile extends React.Component {
     });
   }
 
+  clickProfile() {
+    this.props.history.push('/profile'); 
+  }
+
+  clickLogo() {
+    this.props.history.push('/'); 
+  }
+
   render() {
     return (
       <div>
         <div className="toolbar">
-          <img className="logo-image" src="./assets/teer_logo.png"></img>
+          <img className="logo-image" src="./assets/teer_logo.png" onClick={this.clickLogo}></img>
           <div className="userinfo">
-            <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
+            <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} onClick={this.clickProfile}/>
           </div>
         </div>
         <div className="charity-cover-container">

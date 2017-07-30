@@ -21,6 +21,7 @@ class Eventstream extends React.Component {
     				organisation={eventItem.org_name}
     				eventId={eventItem.id}
 						key = {i}
+            charityId={eventItem.charity_id}
     			/>
     		)}
     	</div>

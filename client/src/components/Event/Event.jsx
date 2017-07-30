@@ -29,22 +29,7 @@ class Event extends React.Component {
       }
     }
     this.logoClick = this.logoClick.bind(this);
-
-        // {
-        //   "src":"http://prod.static.panthers.clubs.nfl.com/assets/images/community/header-charity-events.jpg",
-        //   "title":"Code2040 Hackathon",
-        //   "date":"Wednesday, August2"
-        // },
-        // {
-        //   "src":"./assets/red_cross_food_drive.jpg",
-        //   "title":"RedCross Food Drive",
-        //   "date":"Thursday, August4"
-        // },
-        // {
-        //   "src":"./assets/race_for_the_cure.jpg",
-        //   "title":"Race for the Cure!",
-        //   "date":"Friday, August 5"
-        // },
+    this.clickCharity = this.clickCharity.bind(this);
   }
 
   componentWillMount() {
@@ -54,7 +39,7 @@ class Event extends React.Component {
   }
 
   componentDidMount() {
-    var wantedEventID = 1 || this.props.location.state.eventID;
+    var wantedEventID = this.props.location.state.eventID;
     axios.get('/events/' + wantedEventID)
     .then(response => {
       console.log(response.data[0]);
@@ -67,6 +52,16 @@ class Event extends React.Component {
 
   logoClick() {
     this.props.history.push('/');
+  }
+
+  clickCharity() {
+    var charityID = this.state.events.org_id
+    this.props.history.push({
+      pathname: '/charityprofile',
+      state: {
+        charityID: charityID
+      }
+    });
   }
 
   render () {
@@ -90,11 +85,13 @@ class Event extends React.Component {
             charityLocation = {this.state.events.location}
           />
           <hr/>
+          <div onClick={this.clickCharity}>
           <AboutEventCharity
             charityName = {this.state.events.org_name}
             charityLocation = {this.state.events.location}
             charityDescription = {this.state.events.description}
           />
+          </div>
           <hr/>
 
         <h2>Event Review</h2>
