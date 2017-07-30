@@ -28,9 +28,9 @@ const EventItem = function(props) {
 
   return (
     <div>
-      <div>
-        <span>{props.event.name}</span>
-        <span>on {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()}</span>
+      <div className="charity-upcomingevent">
+        <h5>{props.event.name}</h5>
+        <h3>on {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()}</h3>
       </div>
     </div>
   );

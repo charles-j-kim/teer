@@ -5,14 +5,14 @@ const ReviewItem = function(props) {
   let rev = props.review;
 
   return (
-    <div>
-      <div>
-        <img src={rev.img_url} />
-        <span>{rev.first_name} {rev.last_name[0]}.</span>
+    <div className="charity-review">
+      <div className="review-user">
+        <img className="review-profileimg" src={rev.img_url} />
+        <div className="review-name">{rev.first_name} {rev.last_name[0]}.</div>
       </div>
-      <div>
-        <span>{rev.comment}</span>
-        <span>{`${createdAt.getMonth() + 1}/${createdAt.getDate()}/${createdAt.getFullYear()}`} ● {rev.event_name}</span>
+      <div className="charity-review-body">
+        <span>{rev.comment}</span><br/>
+        <span className="review-detail">{`${createdAt.getMonth() + 1}/${createdAt.getDate()}/${createdAt.getFullYear()}`} ● {rev.event_name}</span>
       </div>
     </div>
   );

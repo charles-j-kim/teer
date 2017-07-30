@@ -232,6 +232,7 @@ h2 {
 	font-weight: 700;
 	color: #555555;
 	margin: 70px 0 0;
+	line-height: 0.8em;
 }
 
 h3 {
@@ -240,7 +241,6 @@ h3 {
 	margin: 0;
 	font-size: 12pt;
 	position: relative;
-	top: -5pt;
 }
 
 .event {
@@ -288,7 +288,7 @@ h3 {
 
 hr {
 	color: #bebebe;
-	size: 1px;
+	size: 0.5px;
 }
 
 #organizer {
@@ -381,9 +381,112 @@ br {
 
 .leftmargin {
 	margin-left: 10px;
+	display: inline-block;
 }
 
+.charity-cover-container {
+	width: 100vw;
+	height: 300px;
+}
 
+.charityprofile-body {
+	width: 1020px;
+	margin: auto;
+	z-index: 10;
+	position: relative;
+	top: -100px;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+
+.charity-name {
+	font-weight: 600;
+	color: #28c97c;
+	font-size: 24pt;
+    line-height: 0.8em;
+}
+
+.charityprofile-header {
+}
+
+.charityprofile-header-right {
+	width: 750px;
+	float: right;
+	position: relative;
+	top: 130px;
+}
+
+.charity-row2 {
+	margin-top: 20px;
+	color: #555;
+}
+
+.charity-nav {
+	width: 200px;
+	height: auto;
+	position: fixed;
+	background-color: #fff;
+	border: solid #cecece;
+	border-width: 1px;
+	padding: 30px;
+	box-sizing: border-box;
+	color: #cecece;
+}
+
+.charity-nav .button:hover {
+	color: #555;
+}
+
+.charity-mainbody {
+	width: 750px;
+	float: right;
+	box-sizing: border-box;
+	background-color: #fff;
+	border: solid #cecece;
+	border-width: 1px;
+	padding: 0 40px 20px;
+}
+
+.charity-about {
+	margin-bottom: 45px;
+}
+
+h4 {
+	font-weight: 500;
+	color: #555555;
+	margin: 45px 0 25px;
+	line-height: 0.8em;
+	font-size: 14pt;
+}
+
+.charity-review {
+	width: 670px;
+	display: table;
+	margin-bottom: 25px;
+}
+
+.charity-review-body {
+	width: 520px;
+	float: right;
+	font-weight: 400;
+	font-size: 10pt;
+}
+
+.review-detail{
+	color: #cecece;
+}
+
+.charity-upcomingevent {
+	margin-bottom: 20px;
+}
+
+h5 {
+	font-weight: 700;
+	color: #555555;
+	margin: 0;
+	line-height: 0.8em;
+	font-size: 16pt;
+}
 
 .clearfix { *zoom: 1; } /* For IE 6/7 */
 .clearfix:before, .clearfix:after {
@@ -487,3 +590,4 @@ br {
 	font-style: italic;	
 	margin: 0 0 0 80px;
 }
+
