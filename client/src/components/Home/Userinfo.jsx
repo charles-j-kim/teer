@@ -17,12 +17,12 @@ class Userinfo extends React.Component {
 	render () {
     return (
     	<div class="userinfo" onClick={this.profilePageClick}>
+        <div id="profilepic">
+          <img className="profile-image" src={this.props.profilePic}></img>
+        </div>
     		<div id="name">
     			{this.props.firstName} {this.props.lastName}
     		</div>
-				<div id="profilepic">
-        	<img className="profile-image" src={this.props.profilePic}></img>
-				</div>
     	</div>
   	)
   }
