@@ -13,6 +13,7 @@ class Loginform extends React.Component {
     this.email = this.email.bind(this);
     this.password = this.password.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.handleRegister = this.handleRegister.bind(this);
   }
 
   onClick() {
@@ -38,6 +39,10 @@ class Loginform extends React.Component {
     });
   }
 
+  handleRegister() {
+    this.props.history.push('/register');
+  }
+
   email(e) {
     this.setState({email: e.target.value});
   }
@@ -55,6 +60,7 @@ class Loginform extends React.Component {
           <input type="password" className="input" placeholder="password" placeholder="Enter your Password" onChange={this.password}/>
           <br/>
           <button className="register" type="submit" onClick={this.onClick}> Login </button>
+          <button className="register" type="submit" onClick={this.handleRegister}> Register </button>
         </form>
       </div>
     )

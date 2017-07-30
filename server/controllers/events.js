@@ -15,7 +15,7 @@ module.exports.charityEvents = function(req, res, next) {
       INNER JOIN users AS uu ON uu.id = ee.host_user_id
       INNER JOIN charities AS cc ON cc.id = uu.charity_id
     WHERE cc.id = ${req.params.charityId}
-    ORDER BY ee.end_date_hr DESC
+    ORDER BY ee.end_date_hr ASC
     `
   )
   .then(response => {
@@ -49,7 +49,7 @@ module.exports.volunteerEvents = function(req, res, next) {
       INNER JOIN users AS uu ON uu.id = ve.volunteer_id
       LEFT JOIN reviews AS rr ON (rr.event_id = ee.id AND rr.reviewer_id = uu.id)
     WHERE ve.volunteer_id = ${req.params.volunteerId}
-    ORDER BY ee.end_date_hr DESC
+    ORDER BY ee.end_date_hr ASC
     `
   )
   .then(response => {
@@ -131,18 +131,19 @@ module.exports.getOne = function(req, res, next) {
 };
 
 module.exports.getReview = function(req, res, next) {
-	knex
+	console.log('REQ PARAMS', req.params.id)
+  knex
 	.raw(
 		`
     SELECT
-      A.id,
+      ee.id,
       B.first_name,
       B.img_url,
       R.comment
-		FROM events A
-      INNER JOIN reviews R ON R.event_id = A.id
+		FROM events AS ee
+      INNER JOIN reviews R ON R.event_id = ee.id
 		  INNER JOIN users B ON B.id = R.reviewer_id
-    WHERE A.id = '${req.params.id}'
+    WHERE ee.id = ${req.params.id}
     ORDER BY R.created_at DESC
     `
   )
