@@ -326,6 +326,10 @@ hr {
 	font-weight: 600;
 }
 
+#organizer:hover {
+	color: #555555;
+}
+
 .eventbanner-container {
 	width: 100vw;
 	height: 600px;
