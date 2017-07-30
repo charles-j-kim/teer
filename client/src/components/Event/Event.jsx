@@ -9,6 +9,8 @@ import UpcomingEventList from './UpcomingEventList.jsx'
 import EventReviewList from './EventReviewList.jsx'
 import Userinfo from './Userinfo.jsx';
 import Chat from '../Chat/Chat.jsx'
+import EventButtons from './EventButtons.jsx'
+
 
 class Event extends React.Component {
   constructor(props) {
@@ -90,6 +92,7 @@ class Event extends React.Component {
           <UpcomingEventList />
         </div>
         <Chat/>
+
       </div>
     )
   }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'react-date-picker/index.css'
 import { DateField, Calendar } from 'react-date-picker'
 import moment from 'moment'
+import Autocomplete from './Autocomplete.jsx'
 
 class Filter extends React.Component {
 	constructor(props) {
@@ -44,7 +45,7 @@ class Filter extends React.Component {
     return (
     	<div className="filter">
     		<form className="filter-form">
-          <input id="location" type="text" placeholder="Pick a city" onClick={this.cancelCalendar}/>
+          <Autocomplete onClick={this.cancelCalendar.bind(this)}/>
           <input id="date" type="text" placeholder="Pick a date" value={this.state.date} onClick={this.handleDateClick} />
           <button id="search" type="submit"> Search </button>
         </form>

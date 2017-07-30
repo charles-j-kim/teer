@@ -10,6 +10,7 @@ class Autocomplete extends React.Component {
       geocodeResults: null,
       loading: false
     }
+    this.cancelCalendar = this.cancelCalendar.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.renderGeocodeFailure = this.renderGeocodeFailure.bind(this)
@@ -21,7 +22,6 @@ class Autocomplete extends React.Component {
       address,
       loading: true
     })
-
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then(({ lat, lng }) => {
@@ -79,6 +79,11 @@ class Autocomplete extends React.Component {
     )
   }
 
+  cancelCalendar(){
+    console.log('Focused!');
+    this.props.onClick(this.state)
+  }
+
   render() {
     const cssClasses = {
       root: 'form-group',
@@ -98,7 +103,7 @@ class Autocomplete extends React.Component {
       value: this.state.address,
       onChange: this.handleChange,
       onBlur: () => { console.log('Blur event!'); },
-      onFocus: () => { console.log('Focused!'); },
+      onFocus: () => { this.cancelCalendar() },
       autoFocus: true,
       placeholder: "Search Places",
       name: 'Demo__input',
