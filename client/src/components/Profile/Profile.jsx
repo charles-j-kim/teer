@@ -11,7 +11,10 @@ import PastEvents from './PastEvents.jsx';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      pastEvents: [],
+      upcomingEvents: []
+    };
   }
   
   componentWillMount() {
@@ -23,7 +26,20 @@ class Profile extends React.Component {
   componentDidMount() {
     axios.get(`/events/volunteer/${window.localStorage.id}`)
     .then(response => {
-      console.log(response.data);
+      console.log(response.data.rows)
+      let events = response.data.rows;
+      let pastEvents = [];
+      let upcomingEvents = [];
+
+      events.forEach(event => {
+        let eventDate = new Date(event.end_date_hr);
+        eventDate < new Date() ? pastEvents.push(event) : upcomingEvents.push(event);
+      });
+
+      this.setState({
+        pastEvents: pastEvents,
+        upcomingEvents: upcomingEvents
+      });
     })
     .catch(error => {
       console.error(error);
@@ -47,8 +63,8 @@ class Profile extends React.Component {
             firstName={window.localStorage.first_name}
             joined={window.localStorage.created_at}
           />
-          <UpcomingEvents />
-          <PastEvents />
+          <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
+          <PastEvents pastEvents={this.state.pastEvents} />
         </div>
       </div>
     );
