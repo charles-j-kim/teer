@@ -4,6 +4,7 @@ import 'react-date-picker/index.css'
 import { DateField, Calendar } from 'react-date-picker'
 import moment from 'moment'
 import Autocomplete from './Autocomplete.jsx'
+import { withRouter} from 'react-router';
 
 class Filter extends React.Component {
 	constructor(props) {
@@ -14,6 +15,7 @@ class Filter extends React.Component {
     }
     this.handleDateClick = this.handleDateClick.bind(this);
     this.cancelCalendar = this.cancelCalendar.bind(this);
+    this.filterInput = this.filterInput.bind(this);
 	}
 
   handleDateClick(){
@@ -24,13 +26,16 @@ class Filter extends React.Component {
     })
   }
 
-  cancelCalendar(){
+  cancelCalendar() {
     if(this.state.isOpen){
       this.setState({
         isOpen: false
       })
     }
+  }
 
+  filterInput(e) {
+    e.preventDefault();
   }
 
 	render () {
@@ -48,7 +53,7 @@ class Filter extends React.Component {
           <Autocomplete onClick={this.cancelCalendar.bind(this)}>
           </Autocomplete>
           <input id="date" type="text" placeholder="Pick a date" value={this.state.date} onClick={this.handleDateClick} />
-          <button id="search" type="submit"> Search </button>
+          <button id="search" onClick={this.filterInput} > Search </button>
         </form>
         {
           this.state.isOpen && <Calendar
@@ -62,4 +67,4 @@ class Filter extends React.Component {
   }
 }
 
-export default Filter;
+export default withRouter(Filter);

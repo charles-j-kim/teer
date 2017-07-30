@@ -23,7 +23,6 @@ class Autocomplete extends React.Component {
       loading: true
     })
     geocodeByAddress(address)
-      .then((results) => getLatLng(results[0]))
       .then(({ lat, lng }) => {
         console.log('Success Yay', { lat, lng })
         this.setState({
@@ -38,22 +37,6 @@ class Autocomplete extends React.Component {
           loading: false
         })
       })
-
-    /* NOTE: Using callback (Deprecated version) */
-    // geocodeByAddress(address,  (err, { lat, lng }) => {
-    //   if (err) {
-    //     console.log('Oh no!', err)
-    //     this.setState({
-    //       geocodeResults: this.renderGeocodeFailure(err),
-    //       loading: false
-    //     })
-    //   }
-    //   console.log(`Yay! got latitude and longitude for ${address}`, { lat, lng })
-    //   this.setState({
-    //     geocodeResults: this.renderGeocodeSuccess(lat, lng),
-    //     loading: false
-    //   })
-    // })
   }
 
   handleChange(address) {
@@ -74,14 +57,12 @@ class Autocomplete extends React.Component {
   renderGeocodeSuccess(lat, lng) {
     return (
       <div className="alert alert-success" role="alert">
-        <strong>Success!</strong> Geocoder found latitude and longitude: <strong>{lat}, {lng}</strong>
       </div>
     )
   }
 
   cancelCalendar(){
     console.log('Focused!');
-    this.props.onClick(this.state)
   }
 
   render() {
@@ -112,7 +93,6 @@ class Autocomplete extends React.Component {
 
     return (
       <div className='location-search-input'>
-
           <PlacesAutocomplete
             onSelect={this.handleSelect}
             autocompleteItem={AutocompleteItem}
@@ -124,8 +104,6 @@ class Autocomplete extends React.Component {
           {!this.state.loading && this.state.geocodeResults ?
             <div className='geocoding-results'>{this.state.geocodeResults}</div> :
           null}
-
-
       </div>
     )
   }
