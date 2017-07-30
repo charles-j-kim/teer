@@ -7,6 +7,8 @@ import Event from './components/Event/Event.jsx';
 import Home from './components/Home/home.jsx';
 import Satori from './components/Satori/Satori.jsx';
 import CharityProfile from './components/CharityProfile/CharityProfile.jsx';
+import Autocomplete from './components/Home/Autocomplete.jsx'
+import EventMap from './components/Home/EventMap.jsx'
 
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { browserHistory } from 'react-router';
@@ -31,7 +33,7 @@ class App extends React.Component {
               <Route exact path="/satori" component={Satori}></Route>
               <Route exact path="/charityprofile" component={CharityProfile}></Route>
               <Route exact path="/autocomplete" component={Autocomplete}></Route>
-
+              <Route exact path="/eventmap" component={EventMap}></Route>
             </Switch>
         </Router>
       </div>
