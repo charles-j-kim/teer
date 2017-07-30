@@ -12,19 +12,26 @@ class Filter extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-      date: ""
+      date: "",
+      isOpen: false
     }
+    this.handleClick = this.handleClick.bind(this);
 	}
 
-  handleFocus(){
-    console.log("Im being focused on")
+  handleClick(){
+    console.log("Im being clicked on", this)
+
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
   }
 
 	render () {
 
     const onChange = (dateString, { dateMoment, timestamp }) => {
       this.setState({
-        date:dateString
+        date:dateString,
+        isOpen: !this.state.isOpen
       })
     }
 
@@ -32,16 +39,16 @@ class Filter extends React.Component {
     	<div className="filter">
     		<form className="filter-form">
           <input id="location" type="text" placeholder="Pick a city"/>
-          <input id="date" type="text" placeholder="Pick a date" value={this.state.date} onFocus={() => this.handleFocus}/>
-          <button id="search" type="submit" onClick={this.onClick}> Search </button>
-
-
+          <input id="date" type="text" placeholder="Pick a date" value={this.state.date} onClick={this.handleClick} />
+          <button id="search" type="submit"> Search </button>
         </form>
-        <Calendar
-          dateFormat="YYYY-MM-DD"
-          date={this.state.date}
-          onChange={onChange}
-        />
+        {
+          this.state.isOpen && <Calendar
+            dateFormat="YYYY-MM-DD"
+            date={this.state.date}
+            onChange={onChange}
+          />
+        }
     	</div>
   	)
   }
