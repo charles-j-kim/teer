@@ -14,14 +14,22 @@ module.exports.events = function(req, res, next) {
     })
     .then(params => {
       var eventsOutput = [];
-      params.forEach(function(userId) {
+      params.forEach(function(userId, idx) {
         models.Event.forge()
         .where( {host_user_id: userId})
         .fetchAll()
         .then((event) => {
-          console.log(event.models[0].attributes);
+          eventsOutput.push({
+            name: event.models[0].attributes.name,
+            start_date_hr: event.models[0].attributes.start_date_hr,
+            end_date_hr: event.models[0].attributes.end_date_hr,
+            teer_points: event.models[0].attributes.teer_points
+          });
+          if ( idx === params.length - 1 ) {
+            res.status(200).send(eventsOutput)
+          }
         })
-      })
+      });
     })
   }
 }
