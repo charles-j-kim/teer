@@ -15,10 +15,14 @@ class Eventstream extends React.Component {
     	<div className="eventstream">
     		{events.map((eventItem,i)=>
     			<Event
+<<<<<<< HEAD
                     key={i}
     				eventImage={eventItem.img_url}
+=======
+    				eventImage={eventItem.event_img_url}
+>>>>>>> fixes date-time rendering
     				eventTitle={eventItem.name}
-    				date={eventItem.start_date_hr}
+    				date={String(eventItem.start_date_hr).slice(0,10)}
     				organisation={eventItem.org_name}
     				eventId={eventItem.id}
     			/>
