@@ -11,7 +11,7 @@ module.exports.login = require('./login');
 module.exports.view = require('./view');
 
 // Event
-module.exports.event = require('./event');
+module.exports.events = require('./events');
 
 // Reviews
 module.exports.reviews = require('./reviews');
