@@ -134,7 +134,7 @@ button:hover {
 
 .userinfo {
 	float: right;
-	margin-right: 4%;
+	margin-right: 7%;
 	position: relative;
     top: -45px;
 }
@@ -219,13 +219,28 @@ button:hover {
 
 .home-body {
 	width: 1020px;
-	margin: 0 auto;
+	margin: 0 auto 70px;
 }
 
 h1 {
 	font-weight: 700;
 	color: #555555;
-	margin: 0 10px;
+	margin: 0;
+}
+
+h2 {
+	font-weight: 700;
+	color: #555555;
+	margin: 70px 0 0;
+	line-height: 0.8em;
+}
+
+h3 {
+	color: #555555;
+	font-weight: 400;
+	margin: 0;
+	font-size: 12pt;
+	position: relative;
 }
 
 .event {
@@ -242,7 +257,6 @@ h1 {
 .event-image-container {
 	width: 490px;
 	height: 300px;
-
 }
 
 .event-image {
@@ -258,6 +272,7 @@ h1 {
     top: -2px;
     padding: 20px 15px;
     line-height: 1.3em;
+    color: #555;
 }
 
 #event-title {
@@ -273,7 +288,7 @@ h1 {
 
 hr {
 	color: #bebebe;
-	size: 1px;
+	size: 0.5px;
 }
 
 #organizer {
@@ -281,3 +296,309 @@ hr {
 	text-transform: capitalize;
 	font-weight: 600;
 }
+
+.eventbanner-container {
+	width: 100vw;
+	height: 600px;
+}
+
+.banner-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: relative;
+	top: -51px;
+}
+
+.event-body {
+	width: 1020px;
+	margin: 70px auto 70px;
+}
+
+.event-body-left {
+	width: 650px;
+	float: left;
+	display: block;
+	margin-left: 10px;
+}
+
+p {
+	margin: 30px 0 50px;
+	color: #555555;
+}
+
+.upcomingeventlist {
+	margin-top: 30px 0 0;
+}
+
+.upcomingevent {
+	background-color: #fff;
+	width: 490px;
+	height: 370px;
+	border: solid #cecece;
+	display: inline-block;
+	border-width: 1px;
+	margin: 10px 9px;
+}
+
+br {
+	line-height: 30px;
+}
+
+.review {
+	width: 650px;
+	display: table;
+	margin-bottom: 25px;
+}
+
+.review-user {
+	width: 150px;
+	float: left;
+	display: inline-block;
+}
+
+.review-body {
+	width: 500px;
+	float: right;
+	box-sizing: border-box;
+	color: #555555;
+}
+
+.review-profileimg {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	display: block;
+}
+
+.review-name {
+	color: #28c97c;
+	font-weight: 500;
+	width: 100px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.leftmargin {
+	margin-left: 10px;
+	display: inline-block;
+}
+
+.charity-cover-container {
+	width: 100vw;
+	height: 300px;
+}
+
+.charity-cover {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: relative;
+	top: -51px;
+}
+
+.charityprofile-body {
+	width: 1020px;
+	margin: auto;
+	z-index: 10;
+	position: relative;
+	top: -100px;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+
+.charity-name {
+	font-weight: 600;
+	color: #28c97c;
+	font-size: 24pt;
+    line-height: 0.8em;
+}
+
+.charity-profile {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.charityprofile-header-right {
+	width: 750px;
+	float: right;
+	position: relative;
+	top: 130px;
+}
+
+.charity-row2 {
+	margin-top: 20px;
+	color: #555;
+}
+
+.charity-nav {
+	width: 200px;
+	height: auto;
+	position: fixed;
+	background-color: #fff;
+	border: solid #cecece;
+	border-width: 1px;
+	padding: 30px;
+	box-sizing: border-box;
+	color: #cecece;
+}
+
+.charity-nav .button:hover {
+	color: #555;
+}
+
+.charity-mainbody {
+	width: 750px;
+	float: right;
+	box-sizing: border-box;
+	background-color: #fff;
+	border: solid #cecece;
+	border-width: 1px;
+	padding: 0 40px 20px;
+}
+
+.charity-about {
+	margin-bottom: 45px;
+}
+
+h4 {
+	font-weight: 500;
+	color: #555555;
+	margin: 45px 0 25px;
+	line-height: 0.8em;
+	font-size: 14pt;
+}
+
+.charity-review {
+	width: 670px;
+	display: table;
+	margin-bottom: 25px;
+}
+
+.charity-review-body {
+	width: 520px;
+	float: right;
+	font-weight: 400;
+	font-size: 10pt;
+}
+
+.review-detail{
+	color: #cecece;
+}
+
+.charity-upcomingevent {
+	margin-bottom: 20px;
+}
+
+h5 {
+	font-weight: 700;
+	color: #555555;
+	margin: 0;
+	line-height: 0.8em;
+	font-size: 16pt;
+}
+
+.clearfix { *zoom: 1; } /* For IE 6/7 */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after { clear: both; }
+
+/* ---------- LIVE-CHAT ---------- */
+
+#live-chat {
+	bottom: 0;
+	font-size: 12px;
+	right: 24px;
+	position: fixed;
+	width: 300px;
+	background-color: #fff;
+}
+
+#live-chat header {
+	background: #293239;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	cursor: pointer;
+	padding: 16px 24px;
+}
+
+#live-chat h4:before {
+	background: #1a8a34;
+	border-radius: 50%;
+	content: "";
+	display: inline-block;
+	height: 8px;
+	margin: 0 8px 0 0;
+	width: 8px;
+}
+
+#live-chat h4 {
+	font-size: 12px;
+}
+
+#live-chat h5 {
+	font-size: 10px;
+}
+
+#live-chat form {
+	padding: 24px;
+}
+
+#live-chat input[type="text"] {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 8px;
+	outline: none;
+	width: 234px;
+}
+
+.chat-close {
+	background: #1b2126;
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	float: right;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
+	margin: 2px 0 0 0;
+	text-align: center;
+	width: 16px;
+}
+
+.chat {
+	background: #fff;
+}
+
+.chat-history {
+	height: 252px;
+	padding: 8px 24px;
+	overflow-y: scroll;
+}
+
+.chat-message {
+	margin: 16px 0;
+}
+
+.chat-message img {
+	border-radius: 50%;
+	float: left;
+}
+
+.chat-message-content {
+	margin-left: 56px;
+}
+
+.chat-time {
+	float: right;
+	font-size: 10px;
+}
+
+.chat-feedback {
+	font-style: italic;	
+	margin: 0 0 0 80px;
+}
+

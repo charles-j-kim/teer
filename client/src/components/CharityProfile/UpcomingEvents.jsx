@@ -1,22 +1,15 @@
 import React from 'react';
-import UpcomingEventItem from './UpcomingEventItem.jsx';
+import EventItem from './EventItem.jsx';
 
-class UpcomingEvents extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <h3>Upcoming Events</h3>
-        <UpcomingEventItem />
-        <UpcomingEventItem />
-        <UpcomingEventItem />
-      </div>
-    );
-  }
-}
+const UpcomingEvents = function(props) {
+  return (
+    <div>
+      <h4>Upcoming Events</h4>
+      {props.upcomingEvents.map((event, i) =>
+        <EventItem key={i} event={event} />
+      )}
+    </div>
+  );
+};
 
 export default UpcomingEvents;

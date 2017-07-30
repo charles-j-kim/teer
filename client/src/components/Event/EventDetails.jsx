@@ -27,17 +27,6 @@ class EventDetails extends React.Component {
           }
         </ul> */}
 
-        <h3> {this.props.charityLocation} </h3>
-        <p> Begin: insert map here ? </p>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <p> End: insert map here ? </p>
 
       </div>
     )

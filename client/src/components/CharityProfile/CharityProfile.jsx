@@ -5,16 +5,25 @@ import About from './About.jsx';
 import Reviews from './Reviews.jsx';
 import UpcomingEvents from './UpcomingEvents.jsx';
 import PastEvents from './PastEvents.jsx';
+import Userinfo from './Userinfo.jsx';
+
 
 class CharityProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstName: 'Joe',
+      lastName: 'Doe',
+      profilePic: 'https://content-static.upwork.com/uploads/2014/10/02123010/profile-photo_friendly.jpg',
       charityId: 1,
       org_name: '',
       description: '',
       cover_img_url: '',
       small_img_url: '',
+      location: '',
+      reviews: [],
+      pastEvents: [],
+      upcomingEvents: []
     };
   }
 
@@ -28,6 +37,7 @@ class CharityProfile extends React.Component {
         description: resData.description,
         cover_img_url: resData.cover_img_url,
         small_img_url: resData.small_img_url,
+        location: resData.location
       });
     })
     .catch(error => {
@@ -37,6 +47,27 @@ class CharityProfile extends React.Component {
     axios.get(`/reviews/charity/${this.state.charityId}`)
     .then(response => {
       console.log('SECOND', response.data.rows);
+      this.setState({
+        reviews: response.data.rows
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+    axios.get(`/events/charity/${this.state.charityId}`)
+    .then(response => {
+      console.log('THIRD', response);
+      let pastEvents = [];
+      let upcomingEvents = [];
+      response.data.rows.forEach(event => {
+        let endTime = new Date(event.end_date_hr);
+        endTime < new Date() ? pastEvents.push(event) : upcomingEvents.push(event); 
+      });
+      this.setState({
+        pastEvents: pastEvents,
+        upcomingEvents: upcomingEvents
+      });
     })
     .catch(error => {
       console.error(error);
@@ -46,25 +77,42 @@ class CharityProfile extends React.Component {
   render() {
     return (
       <div>
-        <img src={this.state.cover_img_url} />
-        <img src={this.state.small_img_url} />
-        <div>
-          <span>{this.state.org_name}</span>
-          <span>San Francisco, CA, United States</span>
+        <div className="toolbar">
+          <img className="logo-image" src="./assets/teer_logo.png"></img>
+          <div className="userinfo">
+            <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
+          </div>
         </div>
-        <div>
-          <span>About</span>
-          <span>Reviews</span>
-          <span>Upcoming Events</span>
-          <span>Past Events</span>
-          <span>Location</span>
+        <div className="charity-cover-container">
+          <img className="charity-cover" src={this.state.cover_img_url} />
         </div>
-        <div>
-          <About description={this.state.description} />
-          <Reviews />
-          <UpcomingEvents />
-          <PastEvents />
-        </div>
+        <div className="charityprofile-body">
+          <div className="charityprofile-header">
+            <img className="charity-profile" src={this.state.small_img_url} />
+            <div className="charityprofile-header-right">
+              <div className="charity-name">{this.state.org_name}</div>
+              <h3>{this.state.location}</h3>
+            </div>
+          </div>
+          <div className="charity-row2">
+            <div className="charity-nav">
+              <span className="button">About</span><br/>
+              <span className="button">Reviews</span><br/>
+              <span className="button">Upcoming Events</span><br/>
+              <span className="button">Past Events</span><br/>
+              <span className="button">Location</span>
+            </div>
+             <div className="charity-mainbody">
+              <About description={this.state.description} />
+              <hr/>
+              <Reviews reviews={this.state.reviews} />
+              <hr/>
+              <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
+              <hr/>
+              <PastEvents pastEvents={this.state.pastEvents} />
+            </div>
+          </div>
+      </div>
       </div>
     );
   }

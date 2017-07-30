@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UpcomingEventItem = function(props) {
+const EventItem = function(props) {
   const days = {
     0: 'Sunday',
     1: 'Monday',
@@ -28,12 +28,12 @@ const UpcomingEventItem = function(props) {
 
   return (
     <div>
-      <div>
-        <span>{props.event.event_name}</span>
-        <span>on {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()}</span>
+      <div className="charity-upcomingevent">
+        <h5>{props.event.name}</h5>
+        <h3>on {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()}</h3>
       </div>
     </div>
   );
 };
 
-export default UpcomingEventItem;
+export default EventItem;

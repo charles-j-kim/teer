@@ -8,15 +8,23 @@ class UpcomingEvent extends React.Component {
   }
 
   componentWillMount() {
-
+    console.log('props', this.props)
   }
 
   render () {
     return (
-      <div>
-        <img src="http://prod.static.panthers.clubs.nfl.com/assets/images/community/header-charity-events.jpg" className=""></img>
-        <h3> {this.props.upcomingEventTitle} </h3>
-        <h5> {this.props.upcomingEventDate} </h5>
+      <div className="upcomingevent">
+        <div className="event-image-container">
+        <img className="event-image" src={this.props.upcomingEventImageSrc}></img>
+        </div>
+        <div className="event-details">
+          <div id="event-title">
+            {this.props.upcomingEventTitle}
+          </div>
+          <div className="event-date">
+            {this.props.upcomingEventDate}
+          </div>
+        </div>
       </div>
     )
   }

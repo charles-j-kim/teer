@@ -26,6 +26,7 @@ exports.up = function(knex, Promise) {
       table.string('location', 100).notNullable();
       table.integer('teer_points').notNullable();
       table.text('description');
+      table.text('event_img_url').defaultTo('https://targetcareers.co.uk/sites/targetcareers.co.uk/files/public/field/image/Types-of-jobs-and-employers-in-charity-work.jpg');
       table.decimal('avg_rating').nullable();
       table.integer('host_user_id').references('users.id').onDelete('CASCADE');
     }),

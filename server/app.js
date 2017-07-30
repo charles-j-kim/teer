@@ -26,4 +26,11 @@ app.use('/events', jsonParser, routes.events);
 // GET reviews
 app.use('/reviews', jsonParser, routes.reviews);
 
+// SparkPost
+app.use('/sparkPost', jsonParser, routes.sparkPost);
+
+// Register Volunteer to service
+app.use('/register-to-event', jsonParser, routes.registerToEvent);
+
+
 module.exports = app;

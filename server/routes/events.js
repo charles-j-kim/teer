@@ -3,7 +3,19 @@ var router = express.Router();
 var EventsController = require('../controllers').events;
 
 router.route('/')
-  .get(EventsController.events);
+  .get(EventsController.allEvents);
+
+router.route('/:id')
+  .get(EventsController.getOne);
+
+router.route('/review/:id')
+  .get(EventsController.getReview);
+
+router.route('/charity/:charityId')
+  .get(EventsController.charityEvents);
+
+router.route('/volunteer/:volunteerId')
+  .get(EventsController.volunteerEvents);
 
 
 module.exports = router;

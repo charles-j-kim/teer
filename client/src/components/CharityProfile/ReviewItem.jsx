@@ -1,27 +1,21 @@
 import React from 'react';
 
-class ReviewItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const ReviewItem = function(props) {
+  let createdAt = new Date(props.review.created_at);
+  let rev = props.review;
 
-  render() {
-    return (
-      <div>
-        <div>
-          <img src="http://findicons.com/files/icons/725/colobrush/128/user_man.png"/>
-          <span>Charles K.</span>
-        </div>
-        <div>
-          <span>
-            The Blood Drive I participated with American Cross was awesome! Would do it anytime again!
-          </span>
-          <span>07/20/2017 ● Event Name</span>
-        </div>
+  return (
+    <div className="charity-review">
+      <div className="review-user">
+        <img className="review-profileimg" src={rev.img_url} />
+        <div className="review-name">{rev.first_name} {rev.last_name[0]}.</div>
       </div>
-    );
-  }
-}
+      <div className="charity-review-body">
+        <span>{rev.comment}</span><br/>
+        <span className="review-detail">{`${createdAt.getMonth() + 1}/${createdAt.getDate()}/${createdAt.getFullYear()}`} ● {rev.event_name}</span>
+      </div>
+    </div>
+  );
+};
 
 export default ReviewItem;
