@@ -21,7 +21,7 @@ app.use('/login', jsonParser, routes.login);
 app.use('/view', jsonParser, routes.view);
 
 // GET events
-app.use('/events', jsonParser, routes.event);
+app.use('/events', jsonParser, routes.events);
 
 // GET reviews
 app.use('/reviews', jsonParser, routes.reviews);

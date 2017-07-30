@@ -15,7 +15,7 @@ module.exports.view = {
 };
 
 // Events
-module.exports.event = require('./event');
+module.exports.events = require('./events');
 
 // Reviews
 module.exports.reviews = require('./reviews');
