@@ -30,6 +30,12 @@ module.exports.events = function(req, res, next) {
           }
         });
       });
+    })
+    .error(function(error) {
+      res.status(500).send(error);
+    })
+    .catch(function(error) {
+      res.status(404).send(error);
     });
   }
 };
