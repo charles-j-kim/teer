@@ -15,7 +15,7 @@ class Eventstream extends React.Component {
     	<div className="eventstream">
     		{events.map((eventItem, i)=>
     			<Event
-						eventImage={eventItem.event_img_url}
+					  eventImage={eventItem.img_url}
     				eventTitle={eventItem.name}
     				date={String(eventItem.start_date_hr).slice(0,10)}
     				organisation={eventItem.org_name}

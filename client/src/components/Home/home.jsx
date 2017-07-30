@@ -48,6 +48,7 @@ class Home extends React.Component {
   componentDidMount() {
     axios.get('/events')
     .then(response => {
+      console.log('THE EVENTS, ' + response.data)
       this.setState({events: response.data});
     })
     .catch(error => {
