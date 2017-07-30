@@ -16,7 +16,9 @@ class Filter extends React.Component {
     }
 	}
 
-
+  handleFocus(){
+    console.log("Im being focused on")
+  }
 
 	render () {
 
@@ -27,10 +29,10 @@ class Filter extends React.Component {
     }
 
     return (
-    	<div class="filter">
+    	<div className="filter">
     		<form className="filter-form">
           <input id="location" type="text" placeholder="Pick a city"/>
-          <input id="date" type="text" placeholder="Pick a date"/>
+          <input id="date" type="text" placeholder="Pick a date" value={this.state.date} onFocus={() => this.handleFocus}/>
           <button id="search" type="submit" onClick={this.onClick}> Search </button>
 
 
