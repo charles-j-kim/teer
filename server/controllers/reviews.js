@@ -28,7 +28,3 @@ module.exports.charityReviews = function(req, res) {
     res.status(404).send(error);
   });
 };
-
-module.exports.volunteerReviews = function(req, res) {
-
-};
