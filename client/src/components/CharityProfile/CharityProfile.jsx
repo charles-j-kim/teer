@@ -25,6 +25,7 @@ class CharityProfile extends React.Component {
       pastEvents: [],
       upcomingEvents: []
     };
+    this.logoClick = this.logoClick.bind(this);
   }
 
   componentDidMount() {
@@ -74,12 +75,16 @@ class CharityProfile extends React.Component {
     });
   }
 
+  logoClick() {
+    this.props.history.push('/');
+  }
+
   render() {
     window.scrollTo(0,0);
     return (
       <div>
         <div className="toolbar">
-          <img className="logo-image" src="./assets/teer_logo.png"></img>
+          <img className="logo-image" src="./assets/teer_logo.png" onClick={this.logoClick}></img>
           <div className="userinfo">
             <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
           </div>
