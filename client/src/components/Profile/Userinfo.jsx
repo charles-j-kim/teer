@@ -18,10 +18,10 @@ class Userinfo extends React.Component {
     return (
     	<div class="userinfo" onClick={this.profilePageClick}>
         <div id="profilepic">
-          <img className="profile-image" src={this.props.profilePic}></img>
+          <img className="profile-image" src={window.localStorage.img_url}></img>
         </div>
     		<div id="name">
-    			{this.props.firstName} {this.props.lastName}
+    			{window.localStorage.first_name} {window.localStorage.last_name}
     		</div>
     	</div>
   	)
