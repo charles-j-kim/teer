@@ -107,7 +107,7 @@ class Chat extends React.Component {
               </div>
             </div>
             <div>
-              <form>
+              <form class="chat-input">
                 <fieldset>
                   <input type="text" value={this.state.chatInput} placeholder="Say something.." autofocus onChange={this.chatInput} onKeyPress={this.handleKeyPress}/>
                   <input type="hidden"/>

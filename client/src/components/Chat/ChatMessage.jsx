@@ -10,7 +10,7 @@ class ChatMessage extends React.Component {
 	render () {
     return (
       <div class="chat-message clearfix">
-        <img src={this.props.avatar} alt="" width="32" height="32"/>
+        <img className="chat-img" src={this.props.avatar} alt="" width="32" height="32"/>
         <div class="chat-message-content clearfix">
           <h5>{this.props.sender}</h5>
           <span class="chat-time">{this.props.time}</span>
