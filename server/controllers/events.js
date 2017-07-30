@@ -1,7 +1,27 @@
 const models = require('../../db/models');
 const knex = require('knex')(require('../../knexfile'));
 
-module.exports.events = function(req, res, next) {
+module.exports.allEvents = function(req, res, next) {
+  knex.raw(
+    `
+    SELECT *
+    FROM events AS ee
+    ORDER BY ee.end_date_hr
+    LIMIT 4
+    `
+  )
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .error(function(error) {
+    res.status(500).send(error);
+  })
+  .catch(function(error) {
+    res.status(404).send(error);
+  });
+};
+
+module.exports.charityEvents = function(req, res, next) {
   knex.raw(
     `
     SELECT
