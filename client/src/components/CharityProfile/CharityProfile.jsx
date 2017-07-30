@@ -5,11 +5,16 @@ import About from './About.jsx';
 import Reviews from './Reviews.jsx';
 import UpcomingEvents from './UpcomingEvents.jsx';
 import PastEvents from './PastEvents.jsx';
+import Userinfo from './Userinfo.jsx';
+
 
 class CharityProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstName: 'Joe',
+      lastName: 'Doe',
+      profilePic: 'https://content-static.upwork.com/uploads/2014/10/02123010/profile-photo_friendly.jpg',
       charityId: 1,
       org_name: '',
       description: '',
@@ -72,8 +77,16 @@ class CharityProfile extends React.Component {
   render() {
     return (
       <div>
-        <img src={this.state.cover_img_url} />
-        <img src={this.state.small_img_url} />
+        <div className="toolbar">
+          <img className="logo-image" src="./assets/teer_logo.png"></img>
+          <div className="userinfo">
+            <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
+          </div>
+        </div>
+        <div className="charity-cover-container">
+          <img className="charity-cover" src={this.state.cover_img_url} />
+        </div>
+        <img className="charity-profile" src={this.state.small_img_url} />
         <div>
           <span>{this.state.org_name}</span>
           <span>{this.state.location}</span>
