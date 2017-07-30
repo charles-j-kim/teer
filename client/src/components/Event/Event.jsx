@@ -8,6 +8,7 @@ import AboutEventCharity from './AboutEventCharity.jsx'
 import UpcomingEventList from './UpcomingEventList.jsx'
 import EventReviewList from './EventReviewList.jsx'
 import Userinfo from './Userinfo.jsx';
+import Chat from '../Chat/Chat.jsx'
 
 class Event extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Event extends React.Component {
         img_url: "http://prod.static.panthers.clubs.nfl.com/assets/images/community/header-charity-events.jpg"
       }
     }
+    this.logoClick = this.logoClick.bind(this);
   }
 
   componentWillMount() {
@@ -45,11 +47,15 @@ class Event extends React.Component {
     });
   }
 
+  logoClick() {
+    this.props.history.push('/');
+  }
+
   render () {
     return (
       <div>
         <div className="toolbar">
-          <img className="logo-image" src="./assets/teer_logo.png"></img>
+          <img className="logo-image" src="./assets/teer_logo.png" onClick={this.logoClick}></img>
           <div className="userinfo">
             <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
           </div>
@@ -83,7 +89,7 @@ class Event extends React.Component {
           </div>
           <UpcomingEventList />
         </div>
-
+        <Chat/>
       </div>
     )
   }
