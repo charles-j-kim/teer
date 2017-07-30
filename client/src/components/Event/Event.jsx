@@ -9,6 +9,8 @@ import UpcomingEventList from './UpcomingEventList.jsx'
 import EventReviewList from './EventReviewList.jsx'
 import Userinfo from './Userinfo.jsx';
 import Chat from '../Chat/Chat.jsx'
+import EventButtons from './EventButtons.jsx'
+
 
 class Event extends React.Component {
   constructor(props) {
@@ -27,6 +29,22 @@ class Event extends React.Component {
       }
     }
     this.logoClick = this.logoClick.bind(this);
+
+        // {
+        //   "src":"http://prod.static.panthers.clubs.nfl.com/assets/images/community/header-charity-events.jpg",
+        //   "title":"Code2040 Hackathon",
+        //   "date":"Wednesday, August2"
+        // },
+        // {
+        //   "src":"./assets/red_cross_food_drive.jpg",
+        //   "title":"RedCross Food Drive",
+        //   "date":"Thursday, August4"
+        // },
+        // {
+        //   "src":"./assets/race_for_the_cure.jpg",
+        //   "title":"Race for the Cure!",
+        //   "date":"Friday, August 5"
+        // },
   }
 
   componentWillMount() {
@@ -90,6 +108,8 @@ class Event extends React.Component {
           <UpcomingEventList />
         </div>
         <Chat/>
+
+
       </div>
     )
   }
