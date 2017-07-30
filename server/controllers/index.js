@@ -13,3 +13,6 @@ module.exports.view = {
   profile: require('./profile-view').profile,
   charity: require('./charity-view').charity
 };
+
+// Events
+module.exports.event = require('./event');

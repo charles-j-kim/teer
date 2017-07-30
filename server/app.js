@@ -20,5 +20,8 @@ app.use('/login', jsonParser, routes.login);
 // GET page views
 app.use('/view', jsonParser, routes.view);
 
+// GET events
+app.use('/events', jsonParser, routes.event);
+
 
 module.exports = app;
