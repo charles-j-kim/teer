@@ -13,14 +13,14 @@ class Eventstream extends React.Component {
 
     return (
     	<div className="eventstream">
-    		{events.map((eventItem,i)=>
+    		{events.map((eventItem, i)=>
     			<Event
-                    key={i}
-    				eventImage={eventItem.img_url}
+						eventImage={eventItem.event_img_url}
     				eventTitle={eventItem.name}
-    				date={eventItem.start_date_hr}
+    				date={String(eventItem.start_date_hr).slice(0,10)}
     				organisation={eventItem.org_name}
     				eventId={eventItem.id}
+						key = {i}
     			/>
     		)}
     	</div>

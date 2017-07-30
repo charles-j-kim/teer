@@ -34,7 +34,7 @@ class UpcomingEventList extends React.Component {
               <UpcomingEvent
                 upcomingEventImageSrc={event.event_img_url}
                 upcomingEventTitle={event.name}
-                upcomingEventDate={event.start_date_hr}
+                upcomingEventDate={String(event.start_date_hr).slice(0,10)}
                 key={i}
               >
               </UpcomingEvent>

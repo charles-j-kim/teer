@@ -97,7 +97,7 @@ exports.seed = function(knex, Promise) {
             teer_points: 100,
             description: 'Fundraising for children and families affected by extremist activities.',
             host_user_id: 4,
-            event_img_url: 'http://l7.alamy.com/zooms/031a5737c2ac4ed89f0b5e650d9dae06/painted-modelsculpture-guerrillas-part-of-a-charity-fundraising-event-dtbkby.jpg'
+            event_img_url: 'https://targetcareers.co.uk/sites/targetcareers.co.uk/files/public/field/image/Types-of-jobs-and-employers-in-charity-work.jpg'
           },
         ]);
       });
