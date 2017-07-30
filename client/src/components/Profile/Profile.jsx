@@ -10,9 +10,7 @@ import PastEvents from './PastEvents.jsx';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userId: 1
-    };
+    this.state = {};
   }
   
   componentWillMount() {
@@ -26,11 +24,18 @@ class Profile extends React.Component {
     return (
       <div>
         <div>
-          <ProfilePic />
+          <ProfilePic
+            img={window.localStorage.img_url}
+            firstName={window.localStorage.first_name}
+            lastName={window.localStorage.last_name}
+          />
           <ProfileStats />
         </div>
         <div>
-          <ProfileBanner />
+          <ProfileBanner
+            firstName={window.localStorage.first_name}
+            joined={window.localStorage.created_at}
+          />
           <UpcomingEvents />
           <PastEvents />
         </div>

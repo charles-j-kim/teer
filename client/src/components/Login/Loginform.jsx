@@ -28,6 +28,8 @@ class Loginform extends React.Component {
       window.localStorage.id = response.data.id;
       window.localStorage.img_url = response.data.img_url;
       window.localStorage.total_teer_points = response.data.total_teer_points;
+      window.localStorage.introduction = response.data.introduction;
+      window.localStorage.created_at = response.data.created_at;
       this.props.history.push('/');
     })
     .catch(error => {

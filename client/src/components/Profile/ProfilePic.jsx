@@ -1,21 +1,14 @@
 import React from 'react';
 
-class ProfilePic extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
+const ProfilePic = function(props) {
+  return (
+    <div>
+      <img src={props.img}/>
       <div>
-        <img src="https://www.webpagefx.com/data/marketing-persona-generator/img/placeholder.png"/>
-        <div>
-          FirstName LastName
-        </div>
+        {props.firstName} {props.lastName}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default ProfilePic;
