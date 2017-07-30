@@ -25,15 +25,10 @@ class CharityProfile extends React.Component {
       pastEvents: [],
       upcomingEvents: []
     };
-    this.clickProfile = this.clickProfile.bind(this);
-    this.clickLogo = this.clickLogo.bind(this);
   }
 
   componentDidMount() {
-    if (window.localStorage.loggedIn !== "true") {
-      this.props.history.push('/login');
-    }
-    axios.get(`/view/charity/${this.props.location.state.charityID}`)
+    axios.get(`/view/charity/${this.state.charityId}`)
     .then(response => {
       console.log(response.data);
       let resData = response.data;
@@ -48,7 +43,8 @@ class CharityProfile extends React.Component {
     .catch(error => {
       console.error(error);
     });
-    axios.get(`/reviews/charity/${this.props.location.state.charityID}`)
+
+    axios.get(`/reviews/charity/${this.state.charityId}`)
     .then(response => {
       console.log('SECOND', response.data.rows);
       this.setState({
@@ -59,7 +55,7 @@ class CharityProfile extends React.Component {
       console.error(error);
     });
 
-    axios.get(`/events/charity/${this.props.location.state.charityID}`)
+    axios.get(`/events/charity/${this.state.charityId}`)
     .then(response => {
       console.log('THIRD', response);
       let pastEvents = [];
@@ -78,22 +74,14 @@ class CharityProfile extends React.Component {
     });
   }
 
-  clickProfile() {
-    this.props.history.push('/profile'); 
-  }
-
-  clickLogo() {
-    this.props.history.push('/'); 
-  }
-
   render() {
     window.scrollTo(0,0);
     return (
       <div>
         <div className="toolbar">
-          <img className="logo-image" src="./assets/teer_logo.png" onClick={this.clickLogo}></img>
+          <img className="logo-image" src="./assets/teer_logo.png"></img>
           <div className="userinfo">
-            <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} onClick={this.clickProfile}/>
+            <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
           </div>
         </div>
         <div className="charity-cover-container">
@@ -112,8 +100,7 @@ class CharityProfile extends React.Component {
               <span className="button">About</span><br/>
               <span className="button">Reviews</span><br/>
               <span className="button">Upcoming Events</span><br/>
-              <span className="button">Past Events</span><br/>
-              <span className="button">Location</span>
+              <span className="button">Past Events</span>
             </div>
              <div className="charity-mainbody">
               <About description={this.state.description} />
