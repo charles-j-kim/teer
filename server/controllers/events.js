@@ -105,13 +105,19 @@ module.exports.getOne = function(req, res, next) {
 module.exports.getReview = function(req, res, next) {
 	knex
 	.raw(
-		`SELECT A.id, B.first_name, B.img_url, R.comment
+		`
+    SELECT
+      A.id,
+      B.first_name,
+      B.img_url,
+      R.comment
 		FROM events A
-    INNER JOIN reviews R
-    ON R.event_id = A.id
-		INNER JOIN users B
-		ON A.host_user_id = B.id
-		AND A.id = '${req.params.id}'`)
+      INNER JOIN reviews R ON R.event_id = A.id
+		  INNER JOIN users B ON B.id = R.reviewer_id
+    WHERE A.id = '${req.params.id}'
+    ORDER BY R.created_at DESC
+    `
+  )
 	.then(events => {
 		res.send(events.rows)
 	})

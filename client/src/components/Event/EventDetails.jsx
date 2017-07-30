@@ -38,17 +38,6 @@ class EventDetails extends React.Component {
         <h1> {this.props.eventTitle} </h1>
         <h3> {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()} </h3>
         <p> {this.props.eventDescription}</p>
-
-        {/* <h3> What to bring </h3>
-        <ul>
-          {
-            this.props.whatToBring.map(function(item, i){
-              return (<li key={i}> {item} </li>)
-            })
-          }
-        </ul> */}
-
-
       </div>
     )
   }
