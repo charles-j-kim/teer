@@ -72,7 +72,8 @@ module.exports.allEvents = function(req, res, next) {
 		ON A.host_user_id = B.id
 		INNER JOIN charities C
 		ON B.charity_id = C.id
-		WHERE B.charity_id IS NOT NULL`)
+		WHERE B.charity_id IS NOT NULL
+    ORDER BY A.end_date_hr ASC`)
 	.then(events => {
 		res.send(events.rows)
 	})
@@ -80,6 +81,33 @@ module.exports.allEvents = function(req, res, next) {
 		console.log('Error when GET:ing the events ', error);
 		res.send(400);
 	})
+};
+
+module.exports.upcomingEvents = function(req, res, next) {
+  knex.raw(
+    `
+    SELECT
+      ee.event_img_url,
+      ee.name,
+      ee.start_date_hr,
+      cc.org_name,
+      ee.id
+    FROM events AS ee
+      INNER JOIN users AS uu ON uu.id = ee.host_user_id
+      INNER JOIN charities cc ON cc.id = uu.charity_id
+    WHERE
+      uu.charity_id IS NOT NULL AND
+      ee.end_date_hr > CURRENT_TIMESTAMP
+    ORDER BY ee.end_date_hr ASC
+    `
+  )
+  .then(events => {
+    res.send(events.rows);
+  })
+  .catch(error => {
+    console.log('Error when GET:ing the events ', error);
+    res.send(400);
+  });
 };
 
 module.exports.getOne = function(req, res, next) {
@@ -126,38 +154,3 @@ module.exports.getReview = function(req, res, next) {
 		res.send(400);
 	})
 };
-
-
-// module.exports.charityEvents = function(req, res, next) {
-//   console.log(req.params.charityId)
-//   knex.raw(
-//     `
-//     SELECT
-//       ee.name,
-//       ee.start_date_hr,
-//       ee.end_date_hr,
-//       ee.teer_points,
-//       rr.comment
-//     FROM events AS ee
-//       INNER JOIN users AS uu ON uu.id = ee.host_user_id
-//       INNER JOIN charities AS cc ON cc.id = uu.charity_id
-//       INNER JOIN reviews AS rr ON rr.event_id = ee.id
-//     WHERE cc.id = ${req.params.charityId}
-//     ORDER BY ee.end_date_hr DESC
-//     `
-//   )
-//   .then(response => {
-//     response.rows[0].comment = [response.rows[0].comment]
-//     console.log(response.rows)
-//     for ( var i = 1; i < response.rows.length; i++ ) {
-//       response.rows[0].comment.push(response.rows[i].comment)
-//     }
-//     res.status(200).send(response.rows[0]);
-//   })
-//   .error(function(error) {
-//     res.status(500).send(error);
-//   })
-//   .catch(function(error) {
-//     res.status(404).send(error);
-//   });
-// };

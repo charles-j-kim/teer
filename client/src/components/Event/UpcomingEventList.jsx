@@ -12,7 +12,7 @@ class UpcomingEventList extends React.Component {
   }
 
   componentWillMount() {
-    axios.get('/events')
+    axios.get('/events/upcoming')
     .then(response => {
       console.log(response.data);
       let resData = response.data;
