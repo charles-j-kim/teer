@@ -18,7 +18,6 @@ class Satori extends React.Component {
     var appKey = "1fB713A35c8C7D7dE3DBc5Ad1A09fd8e";
     var channel = "teer-events";
     this.client = new RTM(endpoint, appKey);
-    console.log("loggin this.client", this.client)
 
     this.client.on('enter-connected', function () {
       console.log('Connected to Satori RTM!', this);
@@ -28,7 +27,7 @@ class Satori extends React.Component {
 
     this.subscription.on('rtm/subscription/data', function (pdu) {
       pdu.body.messages.forEach(function (msg) {
-        console.log('Got message:', msg);
+        console.log('Got message:', msg.body);
       });
     });
     this.client.start();
