@@ -18,6 +18,7 @@ class Event extends React.Component {
     this.state = {
       firstName: 'Joe',
       lastName: 'Doe',
+      signedUp: false,
       profilePic: 'https://content-static.upwork.com/uploads/2014/10/02123010/profile-photo_friendly.jpg',
       events: {
         name: "Fund raiser",
@@ -30,6 +31,7 @@ class Event extends React.Component {
     }
     this.logoClick = this.logoClick.bind(this);
     this.clickCharity = this.clickCharity.bind(this);
+    this.signupButton = this.signupButton.bind(this);
   }
 
   componentWillMount() {
@@ -64,6 +66,11 @@ class Event extends React.Component {
     });
   }
 
+  signupButton() {
+    alert("You are registered for " + this.state.events.name + "!");
+    this.setState({signedUp:true});
+  }
+
   render () {
     return (
       <div>
@@ -84,6 +91,13 @@ class Event extends React.Component {
             eventDescription = {this.state.events.description}
             charityLocation = {this.state.events.location}
           />
+          {this.state.signedUp ? (
+            <div></div>          
+          ) : (
+            <div>
+              <button type="button" onClick={this.signupButton}>Sign up now!</button>
+            </div>
+          )}
           <hr/>
           <div onClick={this.clickCharity}>
           <AboutEventCharity
