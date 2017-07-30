@@ -67,6 +67,7 @@ class Chat extends React.Component {
         }
       });
       this.setState({chatInput: ''});
+      this.refs.a.scrollTop = this.refs.a.scrollHeight;
     }
   }
 
@@ -75,24 +76,30 @@ class Chat extends React.Component {
 	  	<div>
         <div id="live-chat">
           <header class="clearfix">
-            <a class="chat-close">x</a>
-            <h4>John Doe</h4>
           </header>
           <div class="chat">
-            <div class="chat-history">
+            <div class="chat-history" style={styles.chat} ref = "a">
               {this.state.chatMessages.map(chat => <ChatMessage time={chat.time} sender={chat.sender} avatar={chat.avatar} message={chat.message}/>)}
-              <hr/>
             </div>
+          </div>
+          <div> 
             <form>
               <fieldset>
                 <input type="text" value={this.state.chatInput} placeholder="Say something.." autofocus onChange={this.chatInput} onKeyPress={this.handleKeyPress}/>
                 <input type="hidden"/>
               </fieldset>
             </form>
-          </div> 
+          </div>
         </div>
 	  	</div>
   	)
+  }
+}
+
+const styles = {
+  chat: {
+    height: 180,
+    overflow: "scroll"
   }
 }
 
