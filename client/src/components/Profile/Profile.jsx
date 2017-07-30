@@ -57,7 +57,7 @@ class Profile extends React.Component {
   }
 
   render () {
-    console.log('Data in profile for Charles: ', window.localStorage)
+    window.scrollTo(0,0);
     return (
       <div>
       <div className="toolbar">
