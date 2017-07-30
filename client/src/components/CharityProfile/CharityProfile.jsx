@@ -52,10 +52,10 @@ class CharityProfile extends React.Component {
 
     axios.get(`/events/charity/${this.state.charityId}`)
     .then(response => {
-      console.log('THIRD', response.data);
+      console.log('THIRD', response);
       let pastEvents = [];
       let upcomingEvents = [];
-      response.data.forEach(event => {
+      response.data.rows.forEach(event => {
         let endTime = new Date(event.end_date_hr);
         endTime < new Date() ? pastEvents.push(event) : upcomingEvents.push(event); 
       });

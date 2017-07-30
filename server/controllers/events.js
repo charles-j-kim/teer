@@ -1,41 +1,27 @@
-var models = require('../../db/models');
+const models = require('../../db/models');
+const knex = require('knex')(require('../../knexfile'));
 
 module.exports.events = function(req, res, next) {
-  if ( req.params.charityId ) {
-    models.User.forge()
-    .where( {charity_id: req.params.charityId} )
-    .fetchAll()
-    .then( (users) => {
-      var userIds = [];
-      users.models.forEach(function(val) {
-        userIds.push(val.attributes.id);
-      });
-      return userIds;
-    })
-    .then(params => {
-      var eventsOutput = [];
-      params.forEach(function(userId, idx) {
-        models.Event.forge()
-        .where( {host_user_id: userId})
-        .fetchAll()
-        .then((event) => {
-          eventsOutput.push({
-            name: event.models[0].attributes.name,
-            start_date_hr: event.models[0].attributes.start_date_hr,
-            end_date_hr: event.models[0].attributes.end_date_hr,
-            teer_points: event.models[0].attributes.teer_points
-          });
-          if ( idx === params.length - 1 ) {
-            res.status(200).send(eventsOutput);
-          }
-        });
-      });
-    })
-    .error(function(error) {
-      res.status(500).send(error);
-    })
-    .catch(function(error) {
-      res.status(404).send(error);
-    });
-  }
+  knex.raw(
+    `
+    SELECT
+      ee.name,
+      ee.end_date_hr,
+      ee.teer_points
+    FROM events AS ee
+      INNER JOIN users AS uu ON uu.id = ee.host_user_id
+      INNER JOIN charities AS cc ON cc.id = uu.charity_id
+    WHERE cc.id = ${req.params.charityId}
+    ORDER BY ee.end_date_hr DESC
+    `
+  )
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .error(function(error) {
+    res.status(500).send(error);
+  })
+  .catch(function(error) {
+    res.status(404).send(error);
+  });
 };
