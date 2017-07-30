@@ -11,15 +11,9 @@ class Chat extends React.Component {
       chatMessages: [
       {
         time: "13:35",
-        sender: "John Doe",
-        avatar: "https://s-media-cache-ak0.pinimg.com/736x/c6/a4/64/c6a4645d9f9af45a9c9d7b094c18a47a--portrait-ideas-girl-photos.jpg",
-        message: "Hey bro"
-      },
-      {
-        time: "14:00",
-        sender: "Jimmy Jones",
-        avatar: "https://s-media-cache-ak0.pinimg.com/736x/c6/a4/64/c6a4645d9f9af45a9c9d7b094c18a47a--portrait-ideas-girl-photos.jpg",
-        message: "Yooooo!"
+        sender: "Ryan Perry",
+        avatar: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/05c/3b3/0de3dc3.jpg",
+        message: "Hi from the Teer-team, post your question or whatever is on your mind and we'll get back to you ASAP."
       }
       ]
     }
