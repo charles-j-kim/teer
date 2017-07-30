@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UpcomingEventItem = function(props) {
+const EventItem = function(props) {
   const days = {
     0: 'Sunday',
     1: 'Monday',
@@ -36,4 +36,4 @@ const UpcomingEventItem = function(props) {
   );
 };
 
-export default UpcomingEventItem;
+export default EventItem;
