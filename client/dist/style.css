@@ -198,6 +198,17 @@ button:hover {
 	display: inline-block;
 }
 
+.location-search-input {
+	margin: 0;
+	display: inline-block;
+	width: 500px;
+}
+
+#PlacesAutocomplete__root {
+	display: inline-block;
+	width: 500px;
+}
+
 .Demo__search-input{
 	width: 400px;
 	margin-right: 10px;
@@ -613,7 +624,11 @@ h5 {
 }
 
 .chat-feedback {
-	font-style: italic;	
+	font-style: italic;
 	margin: 0 0 0 80px;
+}
+
+.react-date-picker__calendar--theme-default, .react-date-picker__month-view--theme-default, .react-date-picker__date-field--theme-default, .react-date-picker__transition-month-view--theme-default {
+	border: none;
 }
 
