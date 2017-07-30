@@ -87,7 +87,7 @@ module.exports.upcomingEvents = function(req, res, next) {
   knex.raw(
     `
     SELECT
-      ee.event_img_url,
+      ee.img_url,
       ee.name,
       ee.start_date_hr,
       cc.org_name,
