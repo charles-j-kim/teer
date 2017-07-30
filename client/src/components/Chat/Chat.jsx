@@ -97,7 +97,7 @@ class Chat extends React.Component {
             </header>
             <div class="chat">
               <div class="chat-history" style={styles.chat} ref = "a">
-                {this.state.chatMessages.map(chat => <ChatMessage time={chat.time} sender={chat.sender} avatar={chat.avatar} message={chat.message}/>)}
+                {this.state.chatMessages.map(chat => <ChatMessage sender={chat.sender} time={chat.time} avatar={chat.avatar} message={chat.message}/>)}
               </div>
             </div>
             <div>
@@ -123,7 +123,7 @@ class Chat extends React.Component {
 
 const styles = {
   chat: {
-    height: 180,
+    height: 275,
     overflow: "scroll"
   }
 }
