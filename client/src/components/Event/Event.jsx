@@ -8,6 +8,7 @@ import AboutEventCharity from './AboutEventCharity.jsx'
 import UpcomingEventList from './UpcomingEventList.jsx'
 import EventReviewList from './EventReviewList.jsx'
 import Userinfo from './Userinfo.jsx';
+import Chat from '../Chat/Chat.jsx'
 
 class Event extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class Event extends React.Component {
 
   render () {
     return (
-      <div>
+            <div>
         <div className="toolbar">
           <img className="logo-image" src="./assets/teer_logo.png"></img>
           <div className="userinfo">
@@ -83,7 +84,7 @@ class Event extends React.Component {
           </div>
           <UpcomingEventList />
         </div>
-
+        <Chat/>
       </div>
     )
   }
