@@ -13,7 +13,7 @@ class Eventstream extends React.Component {
 
     return (
     	<div class="eventstream">
-    		{events.map(eventItem => <Event eventImage={eventItem.eventImage} eventTitle={eventItem.eventTitle} date={eventItem.date} organisation={eventItem.organisation} eventId={eventItem.ID}/>)}
+    		{events.map(eventItem => <Event eventImage={eventItem.img_url} eventTitle={eventItem.name} date={eventItem.start_date_hr} organisation={eventItem.org_name} eventId={eventItem.id}/>)}
     	</div>
   	)
   }

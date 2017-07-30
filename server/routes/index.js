@@ -9,3 +9,9 @@ module.exports.login = require('./login');
 
 // GET page views
 module.exports.view = require('./view');
+
+// Event
+module.exports.events = require('./events');
+
+// Reviews
+module.exports.reviews = require('./reviews');

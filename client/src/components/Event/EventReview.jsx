@@ -14,7 +14,7 @@ class EventReview extends React.Component {
   render () {
     return (
       <div>
-        <img src={this.props.userProfilePictureSrc} className=""></img>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkKxeD83GnmGOdVNO96xnMHfS3TLV4enbX3W_sV-4yIgXfQrm7" className=""></img>
         <h2> {this.props.name} </h2>
         <p> {this.props.userReview} </p>
       </div>

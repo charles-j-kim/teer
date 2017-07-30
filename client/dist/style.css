@@ -6,6 +6,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Hind', sans-serif;
+	background-color: #fffcfa;
 }
 
 #register-page {
@@ -38,7 +39,7 @@ body {
 	float: bottom;
 }
 
-input {
+.register-form input {
 	border-radius: 8px;
 	border: none;
     padding-left: 7px;
@@ -48,6 +49,7 @@ input {
     font-size: 16pt;
     font-family: 'Hind', sans-serif;
     font-weight: 600;
+    color: #555555;
 }
 
 input::placeholder {
@@ -113,4 +115,169 @@ textarea::placeholder {
 button:hover {
 	border-width: 3px;
 	border-color: #cecece;
+}
+
+.logo-image {
+    width: 75px;
+    margin: 3px auto;
+    display: block;
+}
+
+.toolbar {
+	width: 100vw;
+	height: 50px;
+	border-width: 0 0 5px;
+	border-color: #cecece;
+	box-sizing: border-box;
+	padding: 10px 0;
+}
+
+.userinfo {
+	float: right;
+	margin-right: 4%;
+	position: relative;
+    top: -45px;
+}
+
+#name {
+	color: #555555;
+	display: inline-block;
+	margin-left: 20px;
+    position: relative;
+    top: -14px;
+}
+
+#profilepic {
+	display: inline;
+}
+
+.profile-image {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.city-image-box {
+	width: 100vw;
+	height: 600px;
+	background-image: url("./assets/san_francisco.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+.filter-box {
+	width: 1000px;
+	height: 90px;
+	margin: auto;
+	background-color: #28c97c;
+	z-index: 10;
+	position: relative;
+	top: -90px;
+}
+
+.filter-form {
+	margin: 0px 20px;
+    padding-top: 25px;
+}
+
+.filter-form input {
+	height: 40px;
+	border: none;
+	padding-left: 7px;
+    padding-top: 5px;
+    font-size: 16pt;
+    font-family: 'Hind', sans-serif;
+    font-weight: 600;
+    color: #555555;
+    box-sizing: border-box;
+}
+
+#location {
+	width: 500px;
+	margin-right: 10px;
+}
+
+#date {
+	width: 340px;
+}
+
+#search {
+	height: 40px;
+	border: none;
+	float: right;
+	font-size: 16pt;
+	font-family: 'Hind', sans-serif;
+	font-weight: 600;
+	color: #fff;
+	padding: 0 15px;
+	background-color: #28c97c;
+}
+
+#search:hover {
+	color: #555;
+}
+
+.home-body {
+	width: 1020px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-weight: 700;
+	color: #555555;
+	margin: 0 10px;
+}
+
+.event {
+	background-color: #fff;
+	width: 490px;
+	height: 410px;
+	border: solid #cecece;
+	display: inline-block;
+	border-width: 1px;
+	margin: 10px 9px;
+
+}
+
+.event-image-container {
+	width: 490px;
+	height: 300px;
+
+}
+
+.event-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+}
+
+.event-details {
+	box-sizing: border-box;
+	position: relative;
+    top: -2px;
+    padding: 20px 15px;
+    line-height: 1.3em;
+}
+
+#event-title {
+	font-weight: 700;
+	color: #555;
+	font-size: 16pt;
+}
+
+#event-date {
+	color: #555;
+	font-size: 10pt;
+}
+
+hr {
+	color: #bebebe;
+	size: 1px;
+}
+
+#organizer {
+	color: #cecece;
+	text-transform: capitalize;
+	font-weight: 600;
 }

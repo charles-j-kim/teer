@@ -22,6 +22,7 @@ class Profile extends React.Component {
   }
 
   render () {
+    console.log('Data in profile for Charles: ', window.localStorage)
     return (
       <div>
         <div>
