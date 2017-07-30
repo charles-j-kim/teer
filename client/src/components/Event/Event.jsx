@@ -7,8 +7,7 @@ import EventDetails from './EventDetails.jsx'
 import AboutEventCharity from './AboutEventCharity.jsx'
 import UpcomingEventList from './UpcomingEventList.jsx'
 import EventReviewList from './EventReviewList.jsx'
-import Userinfo from '../Home/Userinfo.jsx'
-
+import Userinfo from './Userinfo.jsx';
 
 class Event extends React.Component {
   constructor(props) {
@@ -46,9 +45,16 @@ class Event extends React.Component {
   render () {
     return (
       <div>
-        <img className="logo-image" src='./assets/teer_logo.png'></img>
-        <Userinfo firstName={window.localStorage.first_name} lastName={window.localStorage.last_name} profilePic={window.localStorage.img_url} />
-        <EventBanner className="banner-image" src={this.state.events.img_url} />
+        <div className="toolbar">
+          <img className="logo-image" src="./assets/teer_logo.png"></img>
+          <div className="userinfo">
+            <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
+          </div>
+        </div>
+        <div className="eventbanner-container">
+        <EventBanner className="banner-image" src="./assets/volunteers_working.jpg" />
+        </div>
+        <div className="event-body">
         <EventDetails
           eventTitle = {this.state.events.name}
           eventDate = {this.state.events.start_date_hr}
@@ -62,6 +68,7 @@ class Event extends React.Component {
         />
         <UpcomingEventList />
         <EventReviewList />
+        </div>
 
       </div>
     )
