@@ -5,9 +5,9 @@ const PastEvents = function(props) {
   return (
     <div>
       <h3>Past Events</h3>
-      <PastEventItem />
-      <PastEventItem />
-      <PastEventItem />
+      {props.pastEvents.map((event, i) =>
+        <PastEventItem key={i} event={event} />
+      )}
     </div>
   );
 };
