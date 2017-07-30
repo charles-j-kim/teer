@@ -14,20 +14,20 @@ class EventDetails extends React.Component {
   render () {
     return (
       <div>
-        <h1> Event Title: {this.props.eventTitle} </h1>
-        <h3> Event Date: {this.props.eventDate} </h3>
-        <p> Event Description: {this.props.eventDescription}</p>
+        <h1> {this.props.eventTitle} </h1>
+        <h3> {this.props.eventDate} </h3>
+        <p> {this.props.eventDescription}</p>
 
-        <h3> What to bring </h3>
+        {/* <h3> What to bring </h3>
         <ul>
           {
             this.props.whatToBring.map(function(item, i){
               return (<li key={i}> {item} </li>)
             })
           }
-        </ul>
+        </ul> */}
 
-        <h3> Event Location </h3>
+        <h3> {this.props.charityLocation} </h3>
         <p> Begin: insert map here ? </p>
         <br />
         <br />
