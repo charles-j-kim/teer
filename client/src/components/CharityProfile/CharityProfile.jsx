@@ -86,24 +86,33 @@ class CharityProfile extends React.Component {
         <div className="charity-cover-container">
           <img className="charity-cover" src={this.state.cover_img_url} />
         </div>
-        <img className="charity-profile" src={this.state.small_img_url} />
-        <div>
-          <span>{this.state.org_name}</span>
-          <span>{this.state.location}</span>
-        </div>
-        <div>
-          <span>About</span>
-          <span>Reviews</span>
-          <span>Upcoming Events</span>
-          <span>Past Events</span>
-          <span>Location</span>
-        </div>
-        <div>
-          <About description={this.state.description} />
-          <Reviews reviews={this.state.reviews} />
-          <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
-          <PastEvents pastEvents={this.state.pastEvents} />
-        </div>
+        <div className="charityprofile-body">
+          <div className="charityprofile-header">
+            <img className="charity-profile" src={this.state.small_img_url} />
+            <div className="charityprofile-header-right">
+              <div className="charity-name">{this.state.org_name}</div>
+              <h3>{this.state.location}</h3>
+            </div>
+          </div>
+          <div className="charity-row2">
+            <div className="charity-nav">
+              <span className="button">About</span><br/>
+              <span className="button">Reviews</span><br/>
+              <span className="button">Upcoming Events</span><br/>
+              <span className="button">Past Events</span><br/>
+              <span className="button">Location</span>
+            </div>
+             <div className="charity-mainbody">
+              <About description={this.state.description} />
+              <hr/>
+              <Reviews reviews={this.state.reviews} />
+              <hr/>
+              <UpcomingEvents upcomingEvents={this.state.upcomingEvents} />
+              <hr/>
+              <PastEvents pastEvents={this.state.pastEvents} />
+            </div>
+          </div>
+      </div>
       </div>
     );
   }

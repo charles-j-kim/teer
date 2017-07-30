@@ -4,7 +4,7 @@ import EventItem from './EventItem.jsx';
 const UpcomingEvents = function(props) {
   return (
     <div>
-      <h3>Upcoming Events</h3>
+      <h4>Upcoming Events</h4>
       {props.upcomingEvents.map((event, i) =>
         <EventItem key={i} event={event} />
       )}

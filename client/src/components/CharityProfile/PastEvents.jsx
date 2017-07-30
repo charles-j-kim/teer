@@ -4,7 +4,7 @@ import EventItem from './EventItem.jsx';
 const PastEvents = function(props) {
   return (
     <div>
-      <h3>Past Events</h3>
+      <h4>Past Events</h4>
       {props.pastEvents.map((event, i) =>
         <EventItem key={i} event={event} />
       )}
