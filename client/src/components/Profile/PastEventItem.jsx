@@ -30,21 +30,23 @@ const PastEventItem = function(props) {
 
   return (
     <div>
-      <div>
-        <span>{props.event.event_name}</span>
-        <span>on {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()}</span>
-        <span>{reviewMsg}</span>
+      <div className="user-pastevents">
+        <h5>{props.event.event_name}</h5>
+        <h3>on {days[eventDate.getDay()]}, {months[eventDate.getMonth()]} {eventDate.getDate()}, {eventDate.getFullYear()}</h3>
+        <span className="reviewMsg">{reviewMsg}</span>
       </div>
-      <div>
-        <span>+{props.event.teer_points}</span>
-        <span>Teer Points</span>
+      <div className="teerpoints">
+        <div className="earned-points">+{props.event.teer_points}</div>
+        <div className="teer-points">Teer Points</div>
       </div>
       {props.event.rating === null ? '' :
+      <div className="pasteventreview-box">
         <PastEventReview
           date={eventDate}
           rating={props.event.rating}
           comment={props.event.comment}
         />
+      </div>
       }
     </div>
   );

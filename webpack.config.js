@@ -10,10 +10,11 @@ module.exports = {
   },
   module : {
     loaders : [
+      { test: /\.css$/, loader: "style-loader!css-loader" },
       {
         test : /\.jsx?/,
         include : SRC_DIR,
-        loader : 'babel-loader',      
+        loader : 'babel-loader',
         query: {
           presets: ['react', 'es2015']
         }

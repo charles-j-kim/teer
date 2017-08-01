@@ -62,7 +62,6 @@ class Home extends React.Component {
         <img className="logo-image" src="./assets/teer_logo.png"></img>
           <div className="userinfo">
             <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
-          <div>
           </div>
       </div>
       <div className="city-image-box">
@@ -73,7 +72,6 @@ class Home extends React.Component {
       <div className="home-body">
       <h1 className="leftmargin">This week</h1>
       <Eventstream events={this.state.events}/>
-      </div>
       </div>
       </div>
     )

@@ -25,10 +25,13 @@ class CharityProfile extends React.Component {
       pastEvents: [],
       upcomingEvents: []
     };
+    this.logoClick = this.logoClick.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`/view/charity/${this.state.charityId}`)
+    let currentCharityId = this.props.location.state.charityID;
+
+    axios.get(`/view/charity/${currentCharityId}`)
     .then(response => {
       console.log(response.data);
       let resData = response.data;
@@ -44,7 +47,7 @@ class CharityProfile extends React.Component {
       console.error(error);
     });
 
-    axios.get(`/reviews/charity/${this.state.charityId}`)
+    axios.get(`/reviews/charity/${currentCharityId}`)
     .then(response => {
       console.log('SECOND', response.data.rows);
       this.setState({
@@ -55,7 +58,7 @@ class CharityProfile extends React.Component {
       console.error(error);
     });
 
-    axios.get(`/events/charity/${this.state.charityId}`)
+    axios.get(`/events/charity/${currentCharityId}`)
     .then(response => {
       console.log('THIRD', response);
       let pastEvents = [];
@@ -74,11 +77,16 @@ class CharityProfile extends React.Component {
     });
   }
 
+  logoClick() {
+    this.props.history.push('/');
+  }
+
   render() {
+    window.scrollTo(0,0);
     return (
       <div>
         <div className="toolbar">
-          <img className="logo-image" src="./assets/teer_logo.png"></img>
+          <img className="logo-image" src="./assets/teer_logo.png" onClick={this.logoClick}></img>
           <div className="userinfo">
             <Userinfo profilePic={this.state.profilePic} firstName={this.state.firstName} lastName={this.state.lastName} />
           </div>
@@ -99,8 +107,7 @@ class CharityProfile extends React.Component {
               <span className="button">About</span><br/>
               <span className="button">Reviews</span><br/>
               <span className="button">Upcoming Events</span><br/>
-              <span className="button">Past Events</span><br/>
-              <span className="button">Location</span>
+              <span className="button">Past Events</span>
             </div>
              <div className="charity-mainbody">
               <About description={this.state.description} />

@@ -9,6 +9,8 @@ import UpcomingEventList from './UpcomingEventList.jsx'
 import EventReviewList from './EventReviewList.jsx'
 import Userinfo from './Userinfo.jsx';
 import Chat from '../Chat/Chat.jsx'
+import EventButtons from './EventButtons.jsx'
+
 
 class Event extends React.Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class Event extends React.Component {
     this.state = {
       firstName: 'Joe',
       lastName: 'Doe',
+      signedUp: false,
       profilePic: 'https://content-static.upwork.com/uploads/2014/10/02123010/profile-photo_friendly.jpg',
       events: {
         name: "Fund raiser",
@@ -24,9 +27,11 @@ class Event extends React.Component {
         org_name: "Red Cross",
         location: "San Mateo, CA",
         img_url: "http://prod.static.panthers.clubs.nfl.com/assets/images/community/header-charity-events.jpg"
-      }
+      },
     }
     this.logoClick = this.logoClick.bind(this);
+    this.clickCharity = this.clickCharity.bind(this);
+    this.signupButton = this.signupButton.bind(this);
   }
 
   componentWillMount() {
@@ -35,8 +40,9 @@ class Event extends React.Component {
     }
   }
 
-  componentDidMount() {
-    var wantedEventID = 1 || this.props.location.state.eventID;
+  componentWillMount() {
+    var wantedEventID = this.props.location.state.eventID;
+
     axios.get('/events/' + wantedEventID)
     .then(response => {
       console.log(response.data[0]);
@@ -51,7 +57,23 @@ class Event extends React.Component {
     this.props.history.push('/');
   }
 
+  clickCharity() {
+    var charityID = this.state.events.org_id
+    this.props.history.push({
+      pathname: '/charityprofile',
+      state: {
+        charityID: charityID
+      }
+    });
+  }
+
+  signupButton() {
+    alert("You are registered for " + this.state.events.name + "!");
+    this.setState({signedUp:true});
+  }
+
   render () {
+    window.scrollTo(0,0);
     return (
       <div>
         <div className="toolbar">
@@ -72,24 +94,37 @@ class Event extends React.Component {
             charityLocation = {this.state.events.location}
           />
           <hr/>
+          <div onClick={this.clickCharity}>
           <AboutEventCharity
             charityName = {this.state.events.org_name}
             charityLocation = {this.state.events.location}
             charityDescription = {this.state.events.description}
           />
+          </div>
           <hr/>
 
         <h2>Event Review</h2>
         <br/>
-          <EventReviewList />
+          <EventReviewList eventId={this.props.location.state.eventID} />
           <br/>
           <hr/>
         <h2> Upcoming Events</h2>
         <br/>
-          </div>
+        </div>
+        <div className="event-body-right">
+        {this.state.signedUp ? (
+            <div></div>          
+          ) : (
+            <div>
+              <button type="button" onClick={this.signupButton}>Sign up now!</button>
+            </div>
+          )}
+        </div>
           <UpcomingEventList />
         </div>
         <Chat/>
+
+
       </div>
     )
   }

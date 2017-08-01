@@ -11,15 +11,9 @@ class Chat extends React.Component {
       chatMessages: [
       {
         time: "13:35",
-        sender: "John Doe",
-        avatar: "https://s-media-cache-ak0.pinimg.com/736x/c6/a4/64/c6a4645d9f9af45a9c9d7b094c18a47a--portrait-ideas-girl-photos.jpg",
-        message: "Hey bro"
-      },
-      {
-        time: "14:00",
-        sender: "Jimmy Jones",
-        avatar: "https://s-media-cache-ak0.pinimg.com/736x/c6/a4/64/c6a4645d9f9af45a9c9d7b094c18a47a--portrait-ideas-girl-photos.jpg",
-        message: "Yooooo!"
+        sender: "Ryan Perry",
+        avatar: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/05c/3b3/0de3dc3.jpg",
+        message: "Hi from the Teer-team, post your question or whatever is on your mind and we'll get back to you ASAP."
       }
       ]
     }
@@ -103,11 +97,11 @@ class Chat extends React.Component {
             </header>
             <div class="chat">
               <div class="chat-history" style={styles.chat} ref = "a">
-                {this.state.chatMessages.map(chat => <ChatMessage time={chat.time} sender={chat.sender} avatar={chat.avatar} message={chat.message}/>)}
+                {this.state.chatMessages.map(chat => <ChatMessage sender={chat.sender} time={chat.time} avatar={chat.avatar} message={chat.message}/>)}
               </div>
             </div>
             <div>
-              <form>
+              <form class="chat-input">
                 <fieldset>
                   <input type="text" value={this.state.chatInput} placeholder="Say something.." autofocus onChange={this.chatInput} onKeyPress={this.handleKeyPress}/>
                   <input type="hidden"/>
@@ -129,7 +123,7 @@ class Chat extends React.Component {
 
 const styles = {
   chat: {
-    height: 180,
+    height: 275,
     overflow: "scroll"
   }
 }

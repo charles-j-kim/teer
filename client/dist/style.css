@@ -195,10 +195,38 @@ button:hover {
 #location {
 	width: 500px;
 	margin-right: 10px;
+	display: inline-block;
+}
+
+.location-search-input {
+	margin: 0;
+	margin-right: 10px;
+	display: inline-block;
+	width: 500px;
+}
+
+#PlacesAutocomplete__root {
+	display: inline-block;
+	width: 500px;
+}
+
+.Demo__search-input{
+	width: 500px;
+	margin-right: 10px;
+	display: inline-block;
+}
+
+.Demo__autocomplete-container{
+	width: 500px;
+	margin-right: 10px;
+	display: inline-block;
 }
 
 #date {
-	width: 340px;
+	width: 330px;
+	display: inline-block;
+	position: absolute;
+
 }
 
 #search {
@@ -287,6 +315,7 @@ h3 {
 }
 
 hr {
+	background-color: #bebebe;
 	color: #bebebe;
 	size: 0.5px;
 }
@@ -295,6 +324,10 @@ hr {
 	color: #cecece;
 	text-transform: capitalize;
 	font-weight: 600;
+}
+
+#organizer:hover {
+	color: #555555;
 }
 
 .eventbanner-container {
@@ -322,6 +355,29 @@ hr {
 	margin-left: 10px;
 }
 
+.event-body-right {
+	display: inline-block;
+	float: right;
+  position: sticky;
+  top: 0px;
+  padding-right: 10px;
+}
+
+.event-body-right button {
+	width: 240px;
+	height: 40px;
+	background-color: #28c97c;
+	border: none;
+	color: #fff;
+	font-weight: 700;
+	font-size: 16pt;
+	border-radius: 0 0 5px 5px;
+}
+
+.event-body-right button:hover {
+	background-color: #f74686;
+}
+
 p {
 	margin: 30px 0 50px;
 	color: #555555;
@@ -339,10 +395,6 @@ p {
 	display: inline-block;
 	border-width: 1px;
 	margin: 10px 9px;
-}
-
-br {
-	line-height: 30px;
 }
 
 .review {
@@ -476,6 +528,10 @@ h4 {
 	margin-bottom: 25px;
 }
 
+.charity-review-box {
+	margin-bottom: 40px;
+}
+
 .charity-review-body {
 	width: 520px;
 	float: right;
@@ -491,12 +547,194 @@ h4 {
 	margin-bottom: 20px;
 }
 
+.upcomingevents-box {
+	margin-bottom: 40px;
+}
+
 h5 {
 	font-weight: 700;
 	color: #555555;
 	margin: 0;
 	line-height: 0.8em;
 	font-size: 16pt;
+}
+
+.profile-box {
+	width: 1000px;
+	margin: 50px auto;
+}
+
+.profile-left {
+	width: 200px;
+	height: auto;
+	background-color: #fff;
+	border: solid #cecece;
+	border-width: 1px;
+	box-sizing: border-box;
+	color: #cecece;
+	display: inline-block;
+	float: left;
+}
+
+.profile-right {
+	width: 750px;
+	float: right;
+	box-sizing: border-box;
+	background-color: #fff;
+	border: solid #cecece;
+	border-width: 1px;
+	display: inline-block;
+}
+
+.userprofile-img {
+	width: 180px;
+	height: 180px;
+	border-radius: 50%;
+	margin: 20px 10px 0;
+}
+
+.userprofile-name {
+	color: #28c97c;
+	font-weight: 500;
+	width: 190px;
+	text-align: center;
+	margin: 15px 0;
+}
+
+.stat-box {
+	margin: 40px 0;
+}
+
+.stat {
+    margin: 10px 0;
+    height: 40px;
+}
+
+.stat-num {
+	text-align: right;
+	color: #555;
+	font-size: 40px;
+	width: 48%;
+	display: inline-block;
+	font-weight: 600;
+}
+
+.stat-title {
+	width: 48%;
+	float: right;
+	color: #cecece;
+	font-size: 14px;
+    line-height: 1.4em;
+    position: relative;
+    top: 12px;
+    display: inline-block;
+}
+
+.profile-banner {
+	width: 100%;
+	height: 100px;
+	background-color: #28c97c;
+	padding: 25px 30px;
+	box-sizing: border-box;
+	color: #fff;
+}
+
+.hi-name {
+	font-weight: 700;
+	color: #fff;
+	margin: 0;
+	font-size: 30px;
+	line-height: 1em;
+}
+
+.h3-white {
+	color: #fff;
+	font-weight: 400;
+	margin: 0;
+	font-size: 12pt;
+	position: relative;
+
+}
+
+.user-events {
+	padding: 0 30px 30px 30px;
+	color: #555;
+}
+
+.user-upcomingevents {
+	margin-bottom: 20px;
+}
+
+.reviewMsg {
+	color: #f74686;
+	font-size: 10pt;
+}
+
+.user-pastevents {
+	width: 550px;
+	display: inline-block;
+}
+
+.teerpoints {
+	width: 100px;
+	float: right;
+	display: inline-block;
+	position: relative;
+    top: -12px;
+
+}
+
+.earned-points {
+	text-align: right;
+	color: #555;
+	font-size: 40px;
+	font-weight: 600;
+}
+
+.teer-points {
+	width: 100px;
+	float: right;
+	color: #cecece;
+	font-size: 14px;
+    line-height: 1.4em;
+    position: relative;
+    top: -12px;
+    text-align: right;
+}
+
+.pasteventreview-box {
+	width: 690px;
+	border: solid #cecece;
+	border-width: 1px;
+	padding: 15px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+
+.review-intro {
+	color: #cecece;
+	font-size: 10pt;
+}
+
+.review-star {
+	color: #f74686;
+}
+
+.user-review {
+	font-size: 9pt;
+}
+
+.react-date-picker__calendar--theme-default, .react-date-picker__month-view--theme-default, .react-date-picker__date-field--theme-default, .react-date-picker__transition-month-view--theme-default {
+	font-size: 1em;
+    width: 330px;
+	border: none;
+    position: relative;
+    left: 265px;
+	box-sizing: border-box;
+}
+
+div.react-date-picker__calendar--theme-default{
+	border: none;
 }
 
 .clearfix { *zoom: 1; } /* For IE 6/7 */
@@ -515,14 +753,17 @@ h5 {
 	position: fixed;
 	width: 300px;
 	background-color: #fff;
+	border: solid #cecece;
+	border-radius: 5px 5px 0 0;
+	border-width: 1px;
 }
 
 #live-chat header {
-	background: #293239;
+	background: #28c97c;
 	border-radius: 5px 5px 0 0;
 	color: #fff;
 	cursor: pointer;
-	padding: 16px 24px;
+	padding: 8px 20px;
 }
 
 #live-chat h4:before {
@@ -548,11 +789,17 @@ h5 {
 }
 
 #live-chat input[type="text"] {
-	border: 1px solid #ccc;
+	border: none;
 	border-radius: 3px;
 	padding: 8px;
 	outline: none;
-	width: 234px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 10pt;
+}
+
+#live-chat form {
+	padding: 0;
 }
 
 .chat-close {
@@ -573,8 +820,12 @@ h5 {
 	background: #fff;
 }
 
+.chat-input {
+	height: 100px;
+}
+
 .chat-history {
-	height: 252px;
+	height: 300px;
 	padding: 8px 24px;
 	overflow-y: scroll;
 }
@@ -590,15 +841,50 @@ h5 {
 
 .chat-message-content {
 	margin-left: 56px;
+	width: 200px;
 }
 
 .chat-time {
 	float: right;
-	font-size: 10px;
+	font-size: 9px;
+	color: #cecece;
 }
 
 .chat-feedback {
-	font-style: italic;	
+	font-style: italic;
 	margin: 0 0 0 80px;
 }
 
+.chat-img {
+	border-radius: 50%;
+	display: inline-block;
+}
+
+fieldset {
+	border: solid #cecece;
+	border-width: 1px 0 0 0;
+	margin: 0;
+}
+
+.one-chat {
+	margin: 15px;
+}
+
+.sender-name {
+	color: #28c97c;
+	display: inline-block;
+	width: 100px;
+	margin-left: 10px;
+	position: relative;
+	top: -12px;
+}
+
+.message {
+	display: inline-block;
+	width: 270px;
+	border: solid #cecece;
+	border-width: 1px;
+	font-size: 11pt;
+	padding: 3px;
+	box-sizing: border-box;
+}

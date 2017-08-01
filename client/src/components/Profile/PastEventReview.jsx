@@ -8,13 +8,13 @@ const PastEventReview = function(props) {
 
   return (
     <div>
-      <div>On {props.date.getMonth() + 1}/{props.date.getDate()}/{props.date.getFullYear()} you wrote</div>
-        <div>
+      <div className="review-intro">On {props.date.getMonth() + 1}/{props.date.getDate()}/{props.date.getFullYear()} you wrote</div>
+        <div className="review-star">
           {count.map((star, i) =>
             <span key={i}>&#9733;</span>
           )}
         </div>
-        <div>
+        <div className="user-review">
           {props.comment}
         </div>
     </div>

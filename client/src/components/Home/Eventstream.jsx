@@ -10,16 +10,17 @@ class Eventstream extends React.Component {
 
 	render () {
 		var events = this.props.events;
-
     return (
-    	<div class="eventstream">
-    		{events.map(eventItem =>
+    	<div className="eventstream">
+    		{events.map((eventItem, i)=>
     			<Event
-    				eventImage={eventItem.img_url}
+					  eventImage={eventItem.img_url}
     				eventTitle={eventItem.name}
-    				date={eventItem.start_date_hr}
+    				date={String(eventItem.start_date_hr).slice(0,10)}
     				organisation={eventItem.org_name}
     				eventId={eventItem.id}
+						key = {i}
+            charityId={eventItem.charity_id}
     			/>
     		)}
     	</div>
